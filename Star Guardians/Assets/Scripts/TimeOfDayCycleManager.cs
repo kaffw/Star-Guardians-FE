@@ -44,7 +44,7 @@ public class TimeOfDayCycleManager : MonoBehaviour
         else if (dayCycleTimer <= 8 * 15) //Dawn
         {
             //StartCoroutine(PostExposureTransition(colorAdjustments.postExposure.value, -2));
-            colorAdjustments.postExposure.value = -2f;
+            colorAdjustments.postExposure.value = -1f;
 
             //Lights.SetActive(true);
             ManananggalMode();
@@ -52,7 +52,7 @@ public class TimeOfDayCycleManager : MonoBehaviour
         else if (dayCycleTimer <= 12 * 15) //Morning
         {
             //StartCoroutine(PostExposureTransition(colorAdjustments.postExposure.value, -1));
-            colorAdjustments.postExposure.value = -1f;
+            colorAdjustments.postExposure.value = -.5f;
 
             //Lights.SetActive(false);
             HumanMode();
@@ -78,13 +78,13 @@ public class TimeOfDayCycleManager : MonoBehaviour
         if (dayCycleTimer >= 3 * 60) //3 minutes day/night
         {
             //night
-            Debug.Log("Currently Night");
+            //Debug.Log("Currently Night");
             isMorning = false;
 
             if (dayCycleTimer >= 6 * 60)
             {
                 //EndOfDay
-                Debug.Log("End of Day");
+                //Debug.Log("End of Day");
                 isMorning = true;
                 dayCycleTimer = 0;
             }
@@ -92,7 +92,7 @@ public class TimeOfDayCycleManager : MonoBehaviour
         else
         {
             //morning
-            Debug.Log("Currently Day");
+            //Debug.Log("Currently Day");
             isMorning = true;
             //colorAdjustments.postExposure.value = 0f;
         }
