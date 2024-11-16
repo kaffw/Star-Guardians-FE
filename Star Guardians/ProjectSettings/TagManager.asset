@@ -9,6 +9,7 @@ TagManager:
   - Shelf
   - Scanner
   - Bound
+  - Expiring
   layers:
   - Default
   - TransparentFX
