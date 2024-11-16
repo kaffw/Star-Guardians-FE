@@ -28,18 +28,42 @@ public class ShelfArrangeTaskBehaviour : MonoBehaviour
             {
                 topShelfItems[i].transform.SetParent(unarrangedHolder.transform);
                 topShelfItems[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
-            }
 
+                //ShelfItemBehaviour sib = topShelfItems[i].GetComponent<ShelfItemBehaviour>();
+                //sib.SetPos();
+            }
+            else
+            {
+                //ShelfItemBehaviour sib = topShelfItems[i].GetComponent<ShelfItemBehaviour>();
+                //sib.SetPos();
+            }
+            
             if (i != midItem)
             {
                 midShelfItems[i].transform.SetParent(unarrangedHolder.transform);
                 midShelfItems[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+
+                //ShelfItemBehaviour sib = midShelfItems[i].GetComponent<ShelfItemBehaviour>();
+                //sib.SetPos();
+            }
+            else
+            {
+                //ShelfItemBehaviour sib = midShelfItems[i].GetComponent<ShelfItemBehaviour>();
+                //sib.SetPos();
             }
 
             if (i != botItem)
             {
                 botShelfItems[i].transform.SetParent(unarrangedHolder.transform);
                 botShelfItems[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+
+                //ShelfItemBehaviour sib = botShelfItems[i].GetComponent<ShelfItemBehaviour>();
+                //sib.SetPos();
+            }
+            else
+            {
+                //ShelfItemBehaviour sib = botShelfItems[i].GetComponent<ShelfItemBehaviour>();
+                //sib.SetPos();
             }
         }
     }
