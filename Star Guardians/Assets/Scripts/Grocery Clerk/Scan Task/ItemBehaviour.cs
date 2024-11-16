@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemBehaviour : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 2.5f;
     private bool enableMove = true;
     private Renderer itemRenderer; // Renderer for fading out
     private BoxCollider2D itemCollider; // Collider to disable when fading starts
