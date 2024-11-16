@@ -7,6 +7,7 @@ public class ShelfItemBehaviour : MonoBehaviour
     private Collider2D c2d;
     public Vector3 defaultPos;
     private Vector3 offset;
+    private bool isArranged = false;
 
     private void Start()
     {
@@ -16,16 +17,20 @@ public class ShelfItemBehaviour : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (isArranged) return;
         offset = transform.position - GetMouseWorldPosition();
     }
 
     private void OnMouseDrag()
     {
+        if (isArranged) return;
         transform.position = GetMouseWorldPosition() + offset;
     }
 
     private void OnMouseUp()
     {
+        if (isArranged) return;
+
         c2d.enabled = false;
 
         Vector2 mousePosition = GetMouseWorldPosition();
@@ -33,30 +38,25 @@ public class ShelfItemBehaviour : MonoBehaviour
 
         if (hitInfo.collider != null)
         {
-            Debug.Log("Hit object: " + hitInfo.collider.gameObject.name);
-
             if (hitInfo.collider.CompareTag("Shelf"))
             {
                 if (hitInfo.collider.gameObject.name == targetRow)
                 {
-                    Debug.Log("Correct Position");
                     transform.SetParent(hitInfo.collider.transform);
+                    isArranged = true;
                 }
                 else
                 {
-                    Debug.Log("Wrong Position");
                     ResetToDefaultPosition();
                 }
             }
             else
             {
-                Debug.Log("No valid shelf hit");
                 ResetToDefaultPosition();
             }
         }
         else
         {
-            Debug.Log("No object hit at mouse position");
             ResetToDefaultPosition();
         }
 

@@ -856,18 +856,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 550971173430778192, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-      propertyPath: targetRow
-      value: Mid Shelf
-      objectReference: {fileID: 0}
-    - target: {fileID: 746157694589244206, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-      propertyPath: targetRow
-      value: Bottom Shelf
-      objectReference: {fileID: 0}
-    - target: {fileID: 1802206977111718683, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-      propertyPath: targetRow
-      value: Mid Shelf
-      objectReference: {fileID: 0}
     - target: {fileID: 3827151524001837351, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -908,50 +896,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3945820737157451776, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-      propertyPath: targetRow
-      value: Bottom Shelf
-      objectReference: {fileID: 0}
-    - target: {fileID: 4297272072985448911, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-      propertyPath: targetRow
-      value: Mid Shelf
-      objectReference: {fileID: 0}
-    - target: {fileID: 5510965392394642961, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-      propertyPath: targetRow
-      value: Top Shelf
-      objectReference: {fileID: 0}
     - target: {fileID: 5880086121911819147, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
       propertyPath: m_Name
       value: Shelf Arrange Task
       objectReference: {fileID: 0}
-    - target: {fileID: 6243833997123973506, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-      propertyPath: targetRow
-      value: Mid Shelf
-      objectReference: {fileID: 0}
-    - target: {fileID: 6433690030278685305, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-      propertyPath: targetRow
-      value: Bottom Shelf
-      objectReference: {fileID: 0}
-    - target: {fileID: 7312710723609839189, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-      propertyPath: targetRow
-      value: Top Shelf
-      objectReference: {fileID: 0}
-    - target: {fileID: 8051295853678219766, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-      propertyPath: targetRow
-      value: Top Shelf
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330166307824063169, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-      propertyPath: targetRow
-      value: Top Shelf
-      objectReference: {fileID: 0}
-    - target: {fileID: 8986083970567336486, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-      propertyPath: targetRow
-      value: Bottom Shelf
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7482478425086039097, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-    - {fileID: 7981680100307890500, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
-    - {fileID: 7942292746871299751, guid: 57d2e613e3d0d964c8f17a7d16cbbbfe, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
