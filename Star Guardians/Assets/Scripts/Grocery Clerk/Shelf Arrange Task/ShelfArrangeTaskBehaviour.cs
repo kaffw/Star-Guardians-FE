@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShelfArrangeTaskBehaviour : MonoBehaviour
 {
-    private GameObject topShelf, midShelf, botShelf;
+    public GameObject topShelf, midShelf, botShelf;
 
     public GameObject[] topShelfItems = new GameObject[4],
                         midShelfItems = new GameObject[4],
@@ -16,6 +16,16 @@ public class ShelfArrangeTaskBehaviour : MonoBehaviour
         Unarranged();
     }
 
+    private void Update()
+    {
+        if (topShelf.transform.childCount == 4 &&
+            midShelf.transform.childCount == 4 &&
+            botShelf.transform.childCount == 4)
+        {
+            Debug.Log("Arrange Shelf Task Completed");
+            Destroy(gameObject, 1f);
+        }
+    }
     void Unarranged()
     {
         int topItem = Random.Range(0, 4);

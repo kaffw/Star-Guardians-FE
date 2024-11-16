@@ -1852,6 +1852,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c68ac095233e104eb746ba09fd23cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topShelf: {fileID: 3808380349629546335}
+  midShelf: {fileID: 6819499896127561485}
+  botShelf: {fileID: 2743921253881665227}
   topShelfItems:
   - {fileID: 18107752110178231}
   - {fileID: 5476255386330175281}
