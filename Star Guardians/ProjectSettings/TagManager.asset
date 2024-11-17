@@ -10,6 +10,7 @@ TagManager:
   - Scanner
   - Bound
   - Expiring
+  - Tagless
   layers:
   - Default
   - TransparentFX
