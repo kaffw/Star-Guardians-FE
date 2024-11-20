@@ -1,29 +1,49 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnterEstablishmentBehaviour : MonoBehaviour
 {
     public GameObject indicator;
-
     public GameObject targetLocation;
+    private GameObject player;
+
     private void Start()
     {
-        //get indicator game object by child
+        player = GameObject.FindWithTag("Player");
     }
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        //indicator.SetActive(true);
 
-        if (Input.GetKeyDown(KeyCode.F) && other.CompareTag("Player"))
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("Establishment entered");
-            other.transform.position = targetLocation.transform.position;
+            StartCoroutine(WaitForInteraction());
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        //indicator.SetActive(false);
+        if (other.CompareTag("Player"))
+        {
+            StopAllCoroutines();
+        }
+    }
+
+    private IEnumerator WaitForInteraction()
+    {
+        while (true)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                EnterEstablishment();
+                yield break;
+            }
+            yield return null;
+        }
+    }
+
+    private void EnterEstablishment()
+    {
+        Debug.Log("Establishment entered");
+        player.transform.position = targetLocation.transform.position + new Vector3(1f, 0f, 0f);
     }
 }
