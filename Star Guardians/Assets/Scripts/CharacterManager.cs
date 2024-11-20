@@ -77,7 +77,7 @@ public class CharacterManager : MonoBehaviour
 
     public void DetachBody()
     {
-        //Check if mUB is within mLB, keybind, call AttachBody.
+        //Check if mUB is within mLB, keybind, call DetachBody.
     }
 }
 /*
