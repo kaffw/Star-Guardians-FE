@@ -19,17 +19,8 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     {
-        if (isManananggal)
-        {
-            rb.gravityScale = 0f;
-            ManananggalMove();
-        }
-        else
-        {
-            rb.gravityScale = 1f;
-            HumanMove();
-            Jump();
-        }
+        HumanMove();
+        Jump();
     }
 
     private void HumanMove()
@@ -51,14 +42,5 @@ public class CharacterMovement : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-    }
-
-    private void ManananggalMove()
-    {
-        float moveInputX = Input.GetAxisRaw("Horizontal");
-        float moveInputY = Input.GetAxisRaw("Vertical");
-
-        Vector2 moveInput = new Vector2(moveInputX, moveInputY).normalized; // Normalize to prevent faster diagonal movement
-        rb.velocity = moveInput * moveSpeed;
     }
 }

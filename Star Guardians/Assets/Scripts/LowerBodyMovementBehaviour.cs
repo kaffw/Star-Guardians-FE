@@ -34,6 +34,8 @@ public class LowerBodyMovementBehaviour : MonoBehaviour
         {
             Jump();
         }
+
+        //if (Input.GetKeyDown(KeyCode.J)) objectiveCleaered = true;
     }
 
     void MovePlayer()

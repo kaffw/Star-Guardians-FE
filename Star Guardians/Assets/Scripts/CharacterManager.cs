@@ -18,13 +18,20 @@ public class CharacterManager : MonoBehaviour
     public enum BodyState { Human, Manananggal };
     public BodyState state;
     public bool isDetached = false; //for manananggal state
+
+    public GameObject humanGO;
+    public GameObject manananggalUpperGO;
+    public GameObject manananggalLowerGO;
+    Vector3 spawnPos;
+    //void Start()
+    //{
+    //    humanGO = GameObject.Find("Whole Body");
+    //    manananggalUpperGO = GameObject.Find("Upper Body");
+    //    manananggalLowerGO = GameObject.Find("Lower Body");
+    //}
+
     void Update()
     {
-        //enable if night
-
-        if (Input.GetKeyDown(KeyCode.M)) isNight = false; //temp day/ night setter
-        else if(Input.GetKeyDown(KeyCode.N)) isNight = true;
-
         if (isNight)
         {
             state = BodyState.Manananggal;
@@ -42,14 +49,12 @@ public class CharacterManager : MonoBehaviour
             state = BodyState.Human;
             humanBodyCam.SetActive(true);
         }
-
-        //Debug.Log(state);
     }
 
     void UpperBodyMode()
     {
         //enable movement for manananggal, disable lower body movement
-        profileImage.sprite = profileSprite[0];
+        profileImage.sprite = profileSprite[1];
         upperBodyMovement.enabled = true;
         lowerBodyMovement.enabled = false;
 
@@ -61,7 +66,7 @@ public class CharacterManager : MonoBehaviour
     void LowerBodyMode()
     {
         //enable movement for lower body, disable movement for manananggal
-        profileImage.sprite = profileSprite[1];
+        profileImage.sprite = profileSprite[2];
         lowerBodyMovement.enabled = true;
         upperBodyMovement.enabled = false;
 
@@ -72,12 +77,34 @@ public class CharacterManager : MonoBehaviour
 
     public void AttachBody()
     {
+        //Debug.Log("AttachBody");
         //Check if mUB is within mLB, keybind, call AttachBody.
+
+        profileImage.sprite = profileSprite[0];
+        spawnPos = manananggalLowerGO.transform.position;
+        humanGO.SetActive(true);
+        manananggalUpperGO.SetActive(false);
+        manananggalLowerGO.SetActive(false);
+
+        humanGO.transform.position = spawnPos;
     }
 
     public void DetachBody()
     {
-        //Check if mUB is within mLB, keybind, call DetachBody.
+        //Debug.Log("DetachBody");
+        ////Check if mUB is within mLB, keybind, call DetachBody.
+        //Debug.Log("Body Detached");
+
+        spawnPos = humanGO.transform.position;
+        humanGO.SetActive(false);
+        manananggalUpperGO.SetActive(true);
+        manananggalLowerGO.SetActive(true);
+
+        manananggalUpperGO.transform.position = spawnPos + new Vector3(0f, 1f, 0f);
+        manananggalLowerGO.transform.position = spawnPos;
+        
+        UpperBodyMode();
+        //isNight = true;
     }
 }
 /*
