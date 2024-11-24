@@ -5,19 +5,23 @@ using UnityEngine;
 public class LowerBodyTrigger : MonoBehaviour
 {
     private bool en = false;
-
+    public DayCycleManager dcm;
+    public CharacterManager cm;
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.J)) en = true;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("UpperBody"))
+        if (other.CompareTag("UpperBody") && en)
         {
-            DayCycleManager dcm = GameObject.Find("DayCycleManager").GetComponent<DayCycleManager>();
             dcm.callLimitMorning = true;
+            
             en = false;
-            //StartCoroutine(dcm.Attach());
+            //cm.UpperBodyMode();
+            StartCoroutine(dcm.Attach());
+            dcm.clmExternal = true;
+            cm.humanBodyCam.SetActive(true);
         }
     }
 }

@@ -23,12 +23,6 @@ public class CharacterManager : MonoBehaviour
     public GameObject manananggalUpperGO;
     public GameObject manananggalLowerGO;
     Vector3 spawnPos;
-    //void Start()
-    //{
-    //    humanGO = GameObject.Find("Whole Body");
-    //    manananggalUpperGO = GameObject.Find("Upper Body");
-    //    manananggalLowerGO = GameObject.Find("Lower Body");
-    //}
 
     void Update()
     {
@@ -51,7 +45,7 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    void UpperBodyMode()
+    public void UpperBodyMode()
     {
         //enable movement for manananggal, disable lower body movement
         profileImage.sprite = profileSprite[1];
@@ -83,10 +77,13 @@ public class CharacterManager : MonoBehaviour
         profileImage.sprite = profileSprite[0];
         spawnPos = manananggalLowerGO.transform.position;
         humanGO.SetActive(true);
+
         manananggalUpperGO.SetActive(false);
         manananggalLowerGO.SetActive(false);
 
         humanGO.transform.position = spawnPos;
+
+        
     }
 
     public void DetachBody()

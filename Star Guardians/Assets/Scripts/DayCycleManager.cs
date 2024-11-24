@@ -14,6 +14,7 @@ public class DayCycleManager : MonoBehaviour
     private CharacterManager charManager;
 
     public bool callLimitMorning = false, callLimitNight = false;
+    public bool clmExternal = false;
     private void Awake()
     {
         charManager = GameObject.Find("Character Manager").GetComponent<CharacterManager>();
@@ -38,7 +39,8 @@ public class DayCycleManager : MonoBehaviour
 
             charManager.isNight = false;
 
-            StartCoroutine(Attach());
+            if (clmExternal) { clmExternal = false; callLimitMorning = false; }
+            else StartCoroutine(Attach());
         }
         else if (timer >= 3 * 60 && timer <= 6 * 60)
         {
@@ -52,11 +54,22 @@ public class DayCycleManager : MonoBehaviour
             if (timer >= 5 * 60)
             {
                 //player should locate their lower body
+                //ignore for now
             }
         }
+
+        //else if (clmExternal)
+        //{
+        //    timer = 0f;
+
+        //    clmExternal = false;
+        //    callLimitMorning = false;
+        //    callLimitNight = true;
+        //}
         else
         {
             timer = 0f;
+
             callLimitMorning = true;
             callLimitNight = true;
         }
