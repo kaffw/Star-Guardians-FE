@@ -15,9 +15,10 @@ public class CharacterManager : MonoBehaviour
     public MonoBehaviour upperBodyMovement, lowerBodyMovement;
     public GameObject upperBodyCam, lowerBodyCam, humanBodyCam;
 
-    public enum BodyState { Human, Manananggal };
-    public BodyState state;
-    public bool isDetached = false; //for manananggal state
+    //not yet used
+    //public enum BodyState { Human, Manananggal };
+    //public BodyState state;
+    //public bool isDetached = false; //for manananggal state
 
     public GameObject humanGO;
     public GameObject manananggalUpperGO;
@@ -28,7 +29,7 @@ public class CharacterManager : MonoBehaviour
     {
         if (isNight)
         {
-            state = BodyState.Manananggal;
+            //state = BodyState.Manananggal;
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 UpperBodyMode();
@@ -40,7 +41,7 @@ public class CharacterManager : MonoBehaviour
         }
         else
         {
-            state = BodyState.Human;
+            //state = BodyState.Human;
             humanBodyCam.SetActive(true);
         }
     }

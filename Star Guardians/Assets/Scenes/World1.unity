@@ -1216,7 +1216,7 @@ GameObject:
   - component: {fileID: 343477033}
   m_Layer: 0
   m_Name: Strtlyt
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1428,7 +1428,7 @@ GameObject:
   - component: {fileID: 420939492}
   m_Layer: 0
   m_Name: Strtlyt
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1753,7 +1753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &662585333
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3479,8 +3479,6 @@ MonoBehaviour:
   upperBodyCam: {fileID: 519420028}
   lowerBodyCam: {fileID: 126474556}
   humanBodyCam: {fileID: 946086335}
-  state: 0
-  isDetached: 0
   humanGO: {fileID: 12371902}
   manananggalUpperGO: {fileID: 170331508}
   manananggalLowerGO: {fileID: 228525984}
@@ -6262,7 +6260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1643626816
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7268,6 +7266,8 @@ MonoBehaviour:
   timer: 0
   callLimitMorning: 0
   callLimitNight: 0
+  clmExternal: 0
+  lightCollection: []
 --- !u!1 &2044213314
 GameObject:
   m_ObjectHideFlags: 0

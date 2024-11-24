@@ -15,12 +15,18 @@ public class DayCycleManager : MonoBehaviour
 
     public bool callLimitMorning = false, callLimitNight = false;
     public bool clmExternal = false;
+    public bool isLightsOn = false;
+
+    public GameObject[] lightCollection;
     private void Awake()
     {
         charManager = GameObject.Find("Character Manager").GetComponent<CharacterManager>();
         
         volume = GameObject.Find("Global Volume").GetComponent<Volume>();
         volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
+
+        lightCollection = GameObject.FindGameObjectsWithTag("Light");
+        StartCoroutine(DisableLights());
     }
     void Start()
     {
@@ -41,6 +47,12 @@ public class DayCycleManager : MonoBehaviour
 
             if (clmExternal) { clmExternal = false; callLimitMorning = false; }
             else StartCoroutine(Attach());
+
+            if (isLightsOn)
+            {
+                isLightsOn = false;
+                StartCoroutine(DisableLights());
+            }
         }
         else if (timer >= 3 * 60 && timer <= 6 * 60)
         {
@@ -51,21 +63,18 @@ public class DayCycleManager : MonoBehaviour
 
             StartCoroutine(Detach());
 
+            if (!isLightsOn)
+            {
+                isLightsOn= true;
+                StartCoroutine(EnableLights());
+            }
+
             if (timer >= 5 * 60)
             {
                 //player should locate their lower body
                 //ignore for now
             }
         }
-
-        //else if (clmExternal)
-        //{
-        //    timer = 0f;
-
-        //    clmExternal = false;
-        //    callLimitMorning = false;
-        //    callLimitNight = true;
-        //}
         else
         {
             timer = 0f;
@@ -92,6 +101,26 @@ public class DayCycleManager : MonoBehaviour
             callLimitNight = false;
             charManager.DetachBody();
         }
+        yield return null;
+    }
+
+    private IEnumerator EnableLights()
+    {
+        foreach (GameObject light in lightCollection)
+        {
+            light.SetActive(true);
+        }
+        isLightsOn = true;
+        yield return null;
+    }
+
+    private IEnumerator DisableLights()
+    {
+        foreach (GameObject light in lightCollection)
+        {
+            light.SetActive(false);
+        }
+        isLightsOn = false;
         yield return null;
     }
 }

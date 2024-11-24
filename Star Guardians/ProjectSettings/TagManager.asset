@@ -13,6 +13,7 @@ TagManager:
   - Tagless
   - UpperBody
   - LowerBody
+  - Light
   layers:
   - Default
   - TransparentFX
