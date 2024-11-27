@@ -5,16 +5,41 @@ using UnityEngine;
 public class TaskSpawner : MonoBehaviour
 {
     public GameObject task;
+    public GameObject camPos;
+
+    [SerializeField]
+    bool inRange = false;
+
+    void Update()
+    {
+        if (inRange)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Debug.Log("Task instantiated");
+
+                Vector3 spawnPosition = new Vector3(camPos.transform.position.x, camPos.transform.position.y, 0);
+                Instantiate(task, spawnPosition, transform.rotation);
+            }
+        }
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Player"))
+            inRange = true;
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetKeyDown(KeyCode.F) && other.CompareTag("Player"))
-        {
-            Debug.Log("Task instantiated");
+        if (other.CompareTag("Player"))
+            inRange = true;
+    }
 
-            GameObject camPos = GameObject.Find("Main Camera");
-            Vector3 spawnPosition = new Vector3(camPos.transform.position.x, camPos.transform.position.y, 0);
-            Instantiate(task, spawnPosition, transform.rotation);
-        }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+            inRange = false;
     }
 }
