@@ -12,21 +12,25 @@ public class DayCycleManager : MonoBehaviour
     private ColorAdjustments colorAdjustments;
 
     private CharacterManager charManager;
+    private DayAndNightTaskManager dayAndNightTaskManager;
 
-    public bool callLimitMorning = false, callLimitNight = false;
-    public bool clmExternal = false;
-    public bool isLightsOn = false;
+    public bool callLimitMorning = false, callLimitNight = false; //limit call for attach/detach once per morning/night sesssion
+    public bool clmExternal = false; //When upper body connects to lower body before morning transition
+    //public bool isLightsOn = false;
+    public bool endOfDay = true; //day/night transition - manages on and off of lights, day/night increment, etc...
 
-    public GameObject[] lightCollection;
+    public GameObject[] lightCollection; //All lights, excluding global light
     private void Awake()
     {
         charManager = GameObject.Find("Character Manager").GetComponent<CharacterManager>();
+        dayAndNightTaskManager = GameObject.Find("Day And Night Task Manager").GetComponent<DayAndNightTaskManager>();
         
         volume = GameObject.Find("Global Volume").GetComponent<Volume>();
         volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
 
         lightCollection = GameObject.FindGameObjectsWithTag("Light");
         StartCoroutine(DisableLights());
+        //StartCoroutine(NightTransition());
     }
     void Start()
     {
@@ -45,13 +49,20 @@ public class DayCycleManager : MonoBehaviour
 
             charManager.isNight = false;
 
+            //if - Manananggal Upper Body attaches to the lower body before transitioning to morning
+            //else - default attach instantly (subject to change)
+            //else v2 - game over, die by hunger/ sunrise, restart game to day 1
             if (clmExternal) { clmExternal = false; callLimitMorning = false; }
             else StartCoroutine(Attach());
 
-            if (isLightsOn)
+            //Day Increment
+            if(endOfDay)//if (isLightsOn)
             {
-                isLightsOn = false;
-                StartCoroutine(DisableLights());
+                //isLightsOn = false;
+                
+                //StartCoroutine(DisableLights());
+                StartCoroutine(NightTransition());
+                endOfDay = false;
             }
         }
         else if (timer >= 3 * 60 && timer <= 6 * 60)
@@ -63,10 +74,14 @@ public class DayCycleManager : MonoBehaviour
 
             StartCoroutine(Detach());
 
-            if (!isLightsOn)
+            // Night Increment
+            if(!endOfDay)//if (!isLightsOn)
             {
-                isLightsOn= true;
-                StartCoroutine(EnableLights());
+                //isLightsOn= true;
+                
+                //StartCoroutine(EnableLights());
+                StartCoroutine(DayTransition());
+                endOfDay = true;
             }
 
             if (timer >= 5 * 60)
@@ -104,13 +119,29 @@ public class DayCycleManager : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator EnableLights()
+    private IEnumerator DayTransition()//EnableLights()
     {
         foreach (GameObject light in lightCollection)
         {
             light.SetActive(true);
         }
-        isLightsOn = true;
+        //isLightsOn = true;
+
+        dayAndNightTaskManager.IncrementNight();
+
+        endOfDay = true;
+        yield return null;
+    }
+
+    private IEnumerator NightTransition()//DisableLights()
+    {
+        StartCoroutine(DisableLights());
+
+        //isLightsOn = false;
+
+        dayAndNightTaskManager.IncrementDay();
+
+        endOfDay = false;
         yield return null;
     }
 
@@ -120,7 +151,7 @@ public class DayCycleManager : MonoBehaviour
         {
             light.SetActive(false);
         }
-        isLightsOn = false;
+
         yield return null;
     }
 }
