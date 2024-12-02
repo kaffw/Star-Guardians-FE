@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 170331512}
   - component: {fileID: 170331514}
   - component: {fileID: 170331515}
+  - component: {fileID: 170331516}
   m_Layer: 7
   m_Name: Upper Body
   m_TagString: UpperBody
@@ -626,10 +627,11 @@ Transform:
   m_GameObject: {fileID: 170331508}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 10.83, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1311366913}
   - {fileID: 27528276}
   - {fileID: 519420032}
   m_Father: {fileID: 740748795}
@@ -675,7 +677,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 779273162, guid: e0694dd9651860746a0c1a7e18ba7ba3, type: 3}
+  m_Sprite: {fileID: -1993412708, guid: 3628eb93a4e6d654c8907957c1099652, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -798,7 +800,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8125, y: 1.1875}
+    oldSize: {x: 3.75, y: 3.25}
     newSize: {x: 0.13, y: 0.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -807,6 +809,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.65911984, y: 1.1875}
   m_EdgeRadius: 0
+--- !u!95 &170331516
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170331508}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 266b6bd364be99747b7f5f1c5cf466b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &171662662
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,7 +948,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1072799633}
   m_HandleRect: {fileID: 1072799632}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4079,7 +4102,7 @@ Transform:
   m_GameObject: {fileID: 1054900408}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1, y: -23.58, z: 0}
+  m_LocalPosition: {x: -1.56, y: -23.58, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4249,9 +4272,11 @@ MonoBehaviour:
   upperBodyCam: {fileID: 519420028}
   lowerBodyCam: {fileID: 126474556}
   humanBodyCam: {fileID: 946086335}
+  state: 0
   humanGO: {fileID: 12371902}
   manananggalUpperGO: {fileID: 170331508}
   manananggalLowerGO: {fileID: 228525984}
+  am: {fileID: 170331514}
 --- !u!1 &1181237466
 GameObject:
   m_ObjectHideFlags: 0
@@ -4459,6 +4484,86 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1311366912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1311366913}
+  - component: {fileID: 1311366914}
+  - component: {fileID: 1311366915}
+  m_Layer: 0
+  m_Name: Attack Range
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1311366913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311366912}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 170331509}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1311366914
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311366912}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
+--- !u!114 &1311366915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311366912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e192d11f5a7904e960acdbcb969140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1321338350
 GameObject:
   m_ObjectHideFlags: 0
@@ -5177,7 +5282,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1345745968}
   m_Direction: 2
   m_Value: 0.99999976
-  m_Size: 0.60999995
+  m_Size: 0.6100001
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8135,7 +8240,7 @@ GameObject:
   - component: {fileID: 1691720205}
   m_Layer: 6
   m_Name: NPC A
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8381,7 +8486,7 @@ GameObject:
   - component: {fileID: 1720902954}
   m_Layer: 6
   m_Name: NPC A (1)
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8713,7 +8818,7 @@ GameObject:
   - component: {fileID: 1774676785}
   m_Layer: 6
   m_Name: NPC A (2)
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

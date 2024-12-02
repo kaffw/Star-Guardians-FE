@@ -16,8 +16,8 @@ public class CharacterManager : MonoBehaviour
     public GameObject upperBodyCam, lowerBodyCam, humanBodyCam;
 
     //not yet used
-    //public enum BodyState { Human, Manananggal };
-    //public BodyState state;
+    public enum BodyState { Human, Manananggal };
+    public BodyState state;
     //public bool isDetached = false; //for manananggal state
 
     public GameObject humanGO;
@@ -25,11 +25,18 @@ public class CharacterManager : MonoBehaviour
     public GameObject manananggalLowerGO;
     Vector3 spawnPos;
 
+    public AerialMovement am;
+
+    void Awake()
+    {
+        am = GameObject.Find("Upper Body").GetComponent<AerialMovement>();
+    }
+
     void Update()
     {
         if (isNight)
         {
-            //state = BodyState.Manananggal;
+            state = BodyState.Manananggal;
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 UpperBodyMode();
@@ -41,8 +48,13 @@ public class CharacterManager : MonoBehaviour
         }
         else
         {
-            //state = BodyState.Human;
+            state = BodyState.Human;
             humanBodyCam.SetActive(true);
+        }
+
+        if (state == BodyState.Manananggal)
+        {
+            am.Descent();
         }
     }
 

@@ -18,8 +18,9 @@ public class AerialMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ManananggalMove();   
+        ManananggalMove();
     }
+
     private void ManananggalMove()
     {
         float moveInputX = Input.GetAxisRaw("Horizontal");
@@ -27,5 +28,17 @@ public class AerialMovement : MonoBehaviour
 
         Vector2 moveInput = new Vector2(moveInputX, moveInputY).normalized; // Normalize to prevent faster diagonal movement
         rb.velocity = moveInput * moveSpeed;
+    }
+
+    public void Attack()
+    {
+        //tahm kench Q
+        Debug.Log("Manananggal Attacks");
+    }
+
+    public void Descent()
+    {
+        //slowly lowers the y pos
+        transform.position = new Vector2(transform.position.x, transform.position.y - (0.5f * Time.deltaTime));
     }
 }
