@@ -44,6 +44,6 @@ public class EnterEstablishmentBehaviour : MonoBehaviour
     private void EnterEstablishment()
     {
         Debug.Log("Establishment entered");
-        player.transform.position = targetLocation.transform.position + new Vector3(1f, 0f, 0f);
+        player.transform.position = targetLocation.transform.position + new Vector3(0f, 1f, 0f);
     }
 }

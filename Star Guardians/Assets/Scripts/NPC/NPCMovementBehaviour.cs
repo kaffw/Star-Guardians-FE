@@ -8,10 +8,19 @@ public class NPCMovementBehaviour : MonoBehaviour
     private int destinationIndex;
     private bool targetReached = true;
 
-    public Collider2D[] collidersToCheck;
+    private Rigidbody2D rb;
+    private bool inJump = false;
+
+    private Coroutine moveCoroutine; // Track the Move coroutine
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     void Update()
     {
-        if (targetReached)
+        if (targetReached && !inJump)
         {
             SetTargetPoint();
         }
@@ -19,23 +28,40 @@ public class NPCMovementBehaviour : MonoBehaviour
 
     IEnumerator Move()
     {
-        while (Vector3.Distance(transform.position, patrolPoints[destinationIndex].position) > 0.1f)
+        while (Vector3.Distance(transform.position, patrolPoints[destinationIndex].position) > 0.1f && !inJump)
         {
             transform.position = Vector3.MoveTowards(transform.position, patrolPoints[destinationIndex].position, moveSpeed * Time.deltaTime);
             yield return null;
         }
 
-        yield return new WaitForSeconds(Random.Range(2, 7));
-
-        transform.position = patrolPoints[destinationIndex].position;
-        targetReached = true;
+        if (!inJump)
+        {
+            yield return new WaitForSeconds(Random.Range(2, 7));
+            transform.position = patrolPoints[destinationIndex].position;
+            targetReached = true;
+        }
     }
 
     void SetTargetPoint()
     {
         destinationIndex = Random.Range(0, patrolPoints.Length);
         targetReached = false;
-        StartCoroutine(Move());
+        moveCoroutine = StartCoroutine(Move());
+    }
+
+    public IEnumerator Jump()
+    {
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+        }
+
+        inJump = true;
+        rb.velocity = new Vector3(0, 10, 0);
+        yield return new WaitForSeconds(1f);
+
+        inJump = false;
+        targetReached = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
