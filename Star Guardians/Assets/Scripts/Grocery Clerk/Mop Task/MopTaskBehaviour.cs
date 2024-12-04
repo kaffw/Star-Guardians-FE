@@ -17,7 +17,7 @@ public class MopTaskBehaviour : MonoBehaviour
         {
             GameObject newPuddle = Instantiate(
                 puddle,
-                transform.position + new Vector3(Random.Range(-3, 4), Random.Range(-3, 4), 0),
+                transform.position + new Vector3(Random.Range(-5, 6), Random.Range(-5, 6), 0),
                 transform.rotation
             );
             newPuddle.transform.SetParent(puddleCollection.transform);
