@@ -13,6 +13,8 @@ public class NPCMovementBehaviour : MonoBehaviour
 
     private Coroutine moveCoroutine; // Track the Move coroutine
 
+    private int targetFloor;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

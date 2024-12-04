@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
+using TMPro;
 
 public class DayCycleManager : MonoBehaviour
 {
@@ -14,12 +16,17 @@ public class DayCycleManager : MonoBehaviour
     private CharacterManager charManager;
     private DayAndNightTaskManager dayAndNightTaskManager;
 
+    //Day/Night transitions
     public bool callLimitMorning = false, callLimitNight = false; //limit call for attach/detach once per morning/night sesssion
     public bool clmExternal = false; //When upper body connects to lower body before morning transition
-    //public bool isLightsOn = false;
+
     public bool endOfDay = true; //day/night transition - manages on and off of lights, day/night increment, etc...
 
     public GameObject[] lightCollection; //All lights, excluding global light
+
+    //day/night counter text
+    public GameObject dayCounterText, nightCounterText;
+
     private void Awake()
     {
         charManager = GameObject.Find("Character Manager").GetComponent<CharacterManager>();
@@ -29,13 +36,17 @@ public class DayCycleManager : MonoBehaviour
         volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
 
         lightCollection = GameObject.FindGameObjectsWithTag("Light");
+        
         StartCoroutine(DisableLights());
-        //StartCoroutine(NightTransition());
+        StartCoroutine(DayCounter());
     }
+
     void Start()
     {
         callLimitMorning = true;
         callLimitNight = true;
+
+
     }
 
     void Update()
@@ -56,12 +67,10 @@ public class DayCycleManager : MonoBehaviour
             else StartCoroutine(Attach());
 
             //Day Increment
-            if(endOfDay)//if (isLightsOn)
+            if(endOfDay)
             {
-                //isLightsOn = false;
-                
-                //StartCoroutine(DisableLights());
                 StartCoroutine(NightTransition());
+                StartCoroutine(DayCounter());
                 endOfDay = false;
             }
         }
@@ -75,12 +84,10 @@ public class DayCycleManager : MonoBehaviour
             StartCoroutine(Detach());
 
             // Night Increment
-            if(!endOfDay)//if (!isLightsOn)
+            if(!endOfDay)
             {
-                //isLightsOn= true;
-                
-                //StartCoroutine(EnableLights());
                 StartCoroutine(DayTransition());
+                StartCoroutine(NightCounter());
                 endOfDay = true;
             }
 
@@ -119,13 +126,12 @@ public class DayCycleManager : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator DayTransition()//EnableLights()
+    private IEnumerator DayTransition()
     {
         foreach (GameObject light in lightCollection)
         {
             light.SetActive(true);
         }
-        //isLightsOn = true;
 
         dayAndNightTaskManager.IncrementNight();
 
@@ -133,11 +139,9 @@ public class DayCycleManager : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator NightTransition()//DisableLights()
+    private IEnumerator NightTransition()
     {
         StartCoroutine(DisableLights());
-
-        //isLightsOn = false;
 
         dayAndNightTaskManager.IncrementDay();
 
@@ -151,6 +155,32 @@ public class DayCycleManager : MonoBehaviour
         {
             light.SetActive(false);
         }
+
+        yield return null;
+    }
+
+    private IEnumerator DayCounter()
+    {
+        //dayCounterText;// = dayAndNightTaskManager.dayCount;
+        TextMeshProUGUI dct = dayCounterText.GetComponent<TextMeshProUGUI>();
+        dct.text = "Day # " + dayAndNightTaskManager.dayCount.ToString();
+
+        dayCounterText.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        dayCounterText.SetActive(false);
+
+        yield return null;
+    }
+
+    private IEnumerator NightCounter()
+    {
+        //nightCounterText = dayAndNightTaskManager.nightCount;
+        TextMeshProUGUI nct = nightCounterText.GetComponent<TextMeshProUGUI>();
+        nct.text = "Night # " + dayAndNightTaskManager.nightCount.ToString();
+
+        nightCounterText.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        nightCounterText.SetActive(false);
 
         yield return null;
     }

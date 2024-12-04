@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 
 public class DayAndNightTaskManager : MonoBehaviour
 {
-    int dayCount = 1, nightCount = 0;
+    public int dayCount = 1, nightCount = 0;
     bool dayLimit, nightLimit;
 
     private CharacterManager charManager;
