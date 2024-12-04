@@ -26,6 +26,8 @@ public class DayCycleManager : MonoBehaviour
 
     //day/night counter text
     public GameObject dayCounterText, nightCounterText;
+    public GameObject newspaper, newspaperImage;
+    public Sprite[] newspaperImageCollection;
 
     private void Awake()
     {
@@ -38,7 +40,7 @@ public class DayCycleManager : MonoBehaviour
         lightCollection = GameObject.FindGameObjectsWithTag("Light");
         
         StartCoroutine(DisableLights());
-        StartCoroutine(DayCounter());
+        //StartCoroutine(DayCounter());
     }
 
     void Start()
@@ -70,7 +72,8 @@ public class DayCycleManager : MonoBehaviour
             if(endOfDay)
             {
                 StartCoroutine(NightTransition());
-                StartCoroutine(DayCounter());
+                //StartCoroutine(DayCounter());
+                StartCoroutine(NewspaperPopUp());
                 endOfDay = false;
             }
         }
@@ -87,7 +90,8 @@ public class DayCycleManager : MonoBehaviour
             if(!endOfDay)
             {
                 StartCoroutine(DayTransition());
-                StartCoroutine(NightCounter());
+                //StartCoroutine(NightCounter());
+                
                 endOfDay = true;
             }
 
@@ -181,6 +185,18 @@ public class DayCycleManager : MonoBehaviour
         nightCounterText.SetActive(true);
         yield return new WaitForSeconds(1f);
         nightCounterText.SetActive(false);
+
+        yield return null;
+    }
+
+    private IEnumerator NewspaperPopUp()
+    {
+        newspaper.SetActive(true);
+        Image img = newspaperImage.GetComponent<Image>(); 
+        img.sprite = newspaperImageCollection[Random.Range(0, newspaperImageCollection.Length)];
+        
+        yield return new WaitForSeconds(3f);
+        newspaper.SetActive(false);
 
         yield return null;
     }
