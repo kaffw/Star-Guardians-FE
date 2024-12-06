@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MopTaskBehaviour : MonoBehaviour
 {
@@ -9,6 +10,16 @@ public class MopTaskBehaviour : MonoBehaviour
 
     private GameObject puddleCollection;
     private bool oneInstance = false;
+
+    private GameObject taskSpawnerGO;
+    private TaskSpawner clearedHandler;
+
+    void Awake()
+    {
+        taskSpawnerGO = GameObject.Find("Mop Task");
+        clearedHandler = taskSpawnerGO.GetComponent<TaskSpawner>();
+    }
+
     void Start()
     {
         puddleCollection = gameObject.transform.Find("Puddles").gameObject;
@@ -34,12 +45,13 @@ public class MopTaskBehaviour : MonoBehaviour
             oneInstance = true;
 
             Debug.Log("Task Cleared!");
+
+            //Task List Update
+            clearedHandler.isCleared = true;
+            TaskListPopManager.mopTaskText.color = Color.green;
+            taskSpawnerGO.SetActive(false);
+
             Destroy(gameObject, 1f);
         }
     }
 }
-
-/*
-    x = -5, 5
-    y = -3, 3
- */

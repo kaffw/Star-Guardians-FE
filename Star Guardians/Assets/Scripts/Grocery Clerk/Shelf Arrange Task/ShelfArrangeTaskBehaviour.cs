@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ShelfArrangeTaskBehaviour : MonoBehaviour
 {
@@ -11,6 +12,16 @@ public class ShelfArrangeTaskBehaviour : MonoBehaviour
                         botShelfItems = new GameObject[4];
 
     public GameObject unarrangedHolder;
+
+    private GameObject taskSpawnerGO;
+    private TaskSpawner clearedHandler;
+
+    void Awake()
+    {
+        taskSpawnerGO = GameObject.Find("Shelf Task");
+        clearedHandler = taskSpawnerGO.GetComponent<TaskSpawner>();
+    }
+
     private void Start()
     {
         Unarranged();
@@ -23,9 +34,16 @@ public class ShelfArrangeTaskBehaviour : MonoBehaviour
             botShelf.transform.childCount == 4)
         {
             Debug.Log("Arrange Shelf Task Completed");
+
+            //Task List Update
+            clearedHandler.isCleared = true;
+            TaskListPopManager.shelfTaskText.color = Color.green;
+            taskSpawnerGO.SetActive(false);
+
             Destroy(gameObject, 1f);
         }
     }
+
     void Unarranged()
     {
         int topItem = Random.Range(0, 4);

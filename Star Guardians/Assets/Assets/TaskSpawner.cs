@@ -10,6 +10,13 @@ public class TaskSpawner : MonoBehaviour
     [SerializeField]
     bool inRange = false;
 
+    public bool isCleared;
+
+    void Start()
+    {
+        isCleared = false;
+    }
+
     void Update()
     {
         if (inRange)
