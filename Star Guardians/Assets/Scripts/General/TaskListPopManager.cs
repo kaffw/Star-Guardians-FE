@@ -15,6 +15,8 @@ public class TaskListPopManager : MonoBehaviour
 
     private int callInstance;
 
+    private CharacterManager charManager;
+
     enum AnimationStates
     {
         isOpen
@@ -23,7 +25,8 @@ public class TaskListPopManager : MonoBehaviour
     void Awake()
     {
         taskListAnim = GameObject.Find("Task List").GetComponent<Animator>();
-        
+        charManager = GameObject.Find("Character Manager").GetComponent<CharacterManager>();
+
         SetTasks();
     }
 
@@ -37,12 +40,14 @@ public class TaskListPopManager : MonoBehaviour
 
     void Update()
     {
+        //call this when night
         if(
             mopTask.isCleared &&
             shelfTask.isCleared &&
             scannerTask.isCleared &&
             expireTask.isCleared &&
             tagTask.isCleared &&
+            charManager.isNight &&
             callInstance == 0
         )
         {
@@ -112,5 +117,11 @@ public class TaskListPopManager : MonoBehaviour
         scannerTaskText.color = Color.white;
         expireTaskText.color = Color.white;
         tagTaskText.color = Color.white;
+
+        mopTask.isCleared = false;
+        shelfTask.isCleared = false;
+        scannerTask.isCleared = false;
+        expireTask.isCleared = false;
+        tagTask.isCleared = false;
     }
 }

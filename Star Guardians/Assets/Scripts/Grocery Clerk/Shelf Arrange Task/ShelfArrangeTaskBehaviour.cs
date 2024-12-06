@@ -5,11 +5,16 @@ using TMPro;
 
 public class ShelfArrangeTaskBehaviour : MonoBehaviour
 {
-    public GameObject topShelf, midShelf, botShelf;
+    public GameObject shelf11, shelf12, shelf13, shelf14, shelf21, shelf22, shelf23, shelf24;
 
-    public GameObject[] topShelfItems = new GameObject[4],
-                        midShelfItems = new GameObject[4],
-                        botShelfItems = new GameObject[4];
+    public GameObject[] shelf11Items = new GameObject[4],
+                        shelf12Items = new GameObject[4],
+                        shelf13Items = new GameObject[4],
+                        shelf14Items = new GameObject[4],
+                        shelf21Items = new GameObject[4],
+                        shelf22Items = new GameObject[4],
+                        shelf23Items = new GameObject[4],
+                        shelf24Items = new GameObject[4];
 
     public GameObject unarrangedHolder;
 
@@ -29,9 +34,15 @@ public class ShelfArrangeTaskBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (topShelf.transform.childCount == 4 &&
-            midShelf.transform.childCount == 4 &&
-            botShelf.transform.childCount == 4)
+        if (shelf11.transform.childCount == 4 &&
+            shelf12.transform.childCount == 4 &&
+            shelf13.transform.childCount == 4 &&
+            shelf14.transform.childCount == 4 &&
+            shelf21.transform.childCount == 4 &&
+            shelf22.transform.childCount == 4 &&
+            shelf23.transform.childCount == 4 &&
+            shelf24.transform.childCount == 4
+        )
         {
             Debug.Log("Arrange Shelf Task Completed");
 
@@ -46,34 +57,64 @@ public class ShelfArrangeTaskBehaviour : MonoBehaviour
 
     void Unarranged()
     {
-        int topItem = Random.Range(0, 4);
-        int midItem = Random.Range(0, 4);
-        int botItem = Random.Range(0, 4);
+        int shelf11Item = Random.Range(0, 4);
+        int shelf12Item = Random.Range(0, 4);
+        int shelf13Item = Random.Range(0, 4);
+        int shelf14Item = Random.Range(0, 4);
+        int shelf21Item = Random.Range(0, 4);
+        int shelf22Item = Random.Range(0, 4);
+        int shelf23Item = Random.Range(0, 4);
+        int shelf24Item = Random.Range(0, 4);
 
         for (int i = 0; i < 4; i++)
         {
-            if (i != topItem)
+            if (i != shelf11Item)
             {
-                topShelfItems[i].transform.SetParent(unarrangedHolder.transform);
-                topShelfItems[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+                shelf11Items[i].transform.SetParent(unarrangedHolder.transform);
+                shelf11Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
             }
             
-            if (i != midItem)
+            if (i != shelf12Item)
             {
-                midShelfItems[i].transform.SetParent(unarrangedHolder.transform);
-                midShelfItems[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+                shelf12Items[i].transform.SetParent(unarrangedHolder.transform);
+                shelf12Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
             }
 
-            if (i != botItem)
+            if (i != shelf13Item)
             {
-                botShelfItems[i].transform.SetParent(unarrangedHolder.transform);
-                botShelfItems[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+                shelf13Items[i].transform.SetParent(unarrangedHolder.transform);
+                shelf13Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+            }
+
+            if (i != shelf14Item)
+            {
+                shelf14Items[i].transform.SetParent(unarrangedHolder.transform);
+                shelf14Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+            }
+
+            if (i != shelf21Item)
+            {
+                shelf21Items[i].transform.SetParent(unarrangedHolder.transform);
+                shelf21Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+            }
+            
+            if (i != shelf22Item)
+            {
+                shelf22Items[i].transform.SetParent(unarrangedHolder.transform);
+                shelf22Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+            }
+
+            if (i != shelf23Item)
+            {
+                shelf23Items[i].transform.SetParent(unarrangedHolder.transform);
+                shelf23Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+            }
+
+            if (i != shelf24Item)
+            {
+                shelf24Items[i].transform.SetParent(unarrangedHolder.transform);
+                shelf24Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
             }
         }
     }
 }
-//topShelf = transform.Find("Top Shelf").gameObject;
-//midShelf = transform.Find("Mid Shelf").gameObject;
-//botShelf = transform.Find("Bottom Shelf").gameObject;
-
-//unarrangedHolder = transform.Find("Unarranged")?.gameObject;

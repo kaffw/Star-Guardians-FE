@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Top Shelf
+  targetRow: Shelf 1 1
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &6729278633874070873
 BoxCollider2D:
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 2
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1403830290043585188
 BoxCollider2D:
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 4
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &4784223073236263999
 BoxCollider2D:
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 3
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &5259058175934351498
 BoxCollider2D:
@@ -791,7 +791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Mid Shelf
+  targetRow: Shelf 1 2
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &5594406671881674734
 BoxCollider2D:
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 1
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &8595537244424624261
 BoxCollider2D:
@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Mid Shelf
+  targetRow: Shelf 1 2
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &8857816937098452040
 BoxCollider2D:
@@ -1310,7 +1310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 1 3
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &2669159989519127195
 BoxCollider2D:
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Mid Shelf
+  targetRow: Shelf 1 2
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &2778394756500184202
 BoxCollider2D:
@@ -1730,7 +1730,7 @@ GameObject:
   - component: {fileID: 3180411708687315928}
   - component: {fileID: 3725297209264932384}
   m_Layer: 0
-  m_Name: Bottom Shelf
+  m_Name: Shelf 1 3
   m_TagString: Shelf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1899,7 +1899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 4
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &5774692915345935674
 BoxCollider2D:
@@ -2072,7 +2072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 1 3
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &8853354079764502828
 BoxCollider2D:
@@ -2245,7 +2245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 1 4
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &304023033371696045
 BoxCollider2D:
@@ -2330,7 +2330,7 @@ GameObject:
   - component: {fileID: 932024478295395457}
   - component: {fileID: 5356020808000828254}
   m_Layer: 0
-  m_Name: Top Shelf
+  m_Name: Shelf 1 1
   m_TagString: Shelf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2499,7 +2499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 1
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &6538076738484251725
 BoxCollider2D:
@@ -2672,7 +2672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Top Shelf
+  targetRow: Shelf 1 1
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &4239199491309485434
 BoxCollider2D:
@@ -2845,7 +2845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 4
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1641746865871871092
 BoxCollider2D:
@@ -3110,7 +3110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Mid Shelf
+  targetRow: Shelf 1 2
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1386632429153438014
 BoxCollider2D:
@@ -3367,7 +3367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Top Shelf
+  targetRow: Shelf 1 1
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &4984657558238097450
 BoxCollider2D:
@@ -3569,24 +3569,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c68ac095233e104eb746ba09fd23cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topShelf: {fileID: 3808380349629546335}
-  midShelf: {fileID: 6819499896127561485}
-  botShelf: {fileID: 2743921253881665227}
-  topShelfItems:
+  shelf11: {fileID: 3808380349629546335}
+  shelf12: {fileID: 6819499896127561485}
+  shelf13: {fileID: 2743921253881665227}
+  shelf14: {fileID: 5647394492082852864}
+  shelf21: {fileID: 2611095114964656099}
+  shelf22: {fileID: 2682560262705108193}
+  shelf23: {fileID: 8185794036812349010}
+  shelf24: {fileID: 6118739072238021796}
+  shelf11Items:
   - {fileID: 18107752110178231}
   - {fileID: 5476255386330175281}
   - {fileID: 4178069375532888768}
   - {fileID: 6259208016801047627}
-  midShelfItems:
+  shelf12Items:
   - {fileID: 1065232491926166591}
   - {fileID: 5155130273685615178}
   - {fileID: 1258874155579636209}
   - {fileID: 2574449970465353537}
-  botShelfItems:
+  shelf13Items:
   - {fileID: 6318873605585878947}
   - {fileID: 3356942750845488868}
   - {fileID: 8046824256428499942}
   - {fileID: 2459781663708774306}
+  shelf14Items:
+  - {fileID: 3761366657924997768}
+  - {fileID: 7182728746146739990}
+  - {fileID: 7197976202343227193}
+  - {fileID: 6767423491806024409}
+  shelf21Items:
+  - {fileID: 3859896733625878166}
+  - {fileID: 1071767764700107208}
+  - {fileID: 8729583674922966088}
+  - {fileID: 8769352999155209044}
+  shelf22Items:
+  - {fileID: 6466492775774566315}
+  - {fileID: 6704171170488114576}
+  - {fileID: 9124491603985547461}
+  - {fileID: 518615489422435102}
+  shelf23Items:
+  - {fileID: 6972107776611610393}
+  - {fileID: 7967919020563035593}
+  - {fileID: 1002367726079752561}
+  - {fileID: 6394374118249629924}
+  shelf24Items:
+  - {fileID: 6391950862415462961}
+  - {fileID: 2776128952021226742}
+  - {fileID: 698079437175217821}
+  - {fileID: 4452048150523009518}
   unarrangedHolder: {fileID: 8091176841995605279}
 --- !u!1 &6118739072238021796
 GameObject:
@@ -3768,7 +3798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Top Shelf
+  targetRow: Shelf 1 1
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &5098066904321752440
 BoxCollider2D:
@@ -3941,7 +3971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 1 3
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &6603395177624735413
 BoxCollider2D:
@@ -4114,7 +4144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 4
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &5124693898286276218
 BoxCollider2D:
@@ -4287,7 +4317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 3
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &5757682171269230083
 BoxCollider2D:
@@ -4460,7 +4490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 2
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &5100814111093446665
 BoxCollider2D:
@@ -4633,7 +4663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 2
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &62214038333448541
 BoxCollider2D:
@@ -4806,7 +4836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 1 4
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &262498688087172288
 BoxCollider2D:
@@ -4891,7 +4921,7 @@ GameObject:
   - component: {fileID: 7103560739775747662}
   - component: {fileID: 398126652666650334}
   m_Layer: 0
-  m_Name: Mid Shelf
+  m_Name: Shelf 1 2
   m_TagString: Shelf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5060,7 +5090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 3
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1263521793635176079
 BoxCollider2D:
@@ -5233,7 +5263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 1 4
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &6124090724619947376
 BoxCollider2D:
@@ -5406,7 +5436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 1 4
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &6407377295709309856
 BoxCollider2D:
@@ -5579,7 +5609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 3
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &2736121014420745993
 BoxCollider2D:
@@ -5752,7 +5782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 1 3
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &2152525106391551724
 BoxCollider2D:
@@ -6090,7 +6120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 1
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &2506575285182839212
 BoxCollider2D:
@@ -6263,7 +6293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 1
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &2688348414098246889
 BoxCollider2D:
@@ -6436,7 +6466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b5178d490c4e45b428468ec03eb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRow: Bottom Shelf
+  targetRow: Shelf 2 2
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!61 &7165390522225026214
 BoxCollider2D:
