@@ -15,16 +15,34 @@ public class NPCMovementBehaviour : MonoBehaviour
 
     private int targetFloor;
 
+    private bool isPanic;
+    
+    private GameObject ub; //mUB
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        isPanic = false;
     }
 
     void Update()
     {
-        if (targetReached && !inJump)
+        if (targetReached && !inJump && !isPanic)
         {
             SetTargetPoint();
+        }
+
+        if(isPanic)
+        {
+            if(!targetReached)
+            {
+                StopAllCoroutines();
+                targetReached = true;
+                rb.velocity = new Vector3(0, 0, 0);
+            }
+
+            Panic();
         }
     }
 
@@ -70,7 +88,9 @@ public class NPCMovementBehaviour : MonoBehaviour
     {
         if (other.CompareTag("UpperBody"))
         {
+            ub = other.gameObject;
             moveSpeed = 5f;
+            isPanic = true;
         }
     }
 
@@ -79,6 +99,14 @@ public class NPCMovementBehaviour : MonoBehaviour
         if (other.CompareTag("UpperBody"))
         {
             moveSpeed = 2f;
+            isPanic = false;
         }
+    }
+
+    void Panic()
+    {
+        float direction = (transform.position.x > ub.transform.position.x) ? 1f : -1f;
+
+        rb.velocity = new Vector2(direction * moveSpeed, rb.velocity.y);
     }
 }

@@ -4,14 +4,16 @@ public class CharacterMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
-    //public Transform groundCheck;
-    //public LayerMask groundLayer;
 
     private Rigidbody2D rb;
-    //private bool isGrounded;
-    //private float groundCheckRadius = 0.2f;
 
     public static bool isManananggal = false;
+    
+    public Vector2 boxSize;
+    public float castDistance;
+    bool grounded;
+    public LayerMask groundLayer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,11 +38,25 @@ public class CharacterMovement : MonoBehaviour
 
     private void Jump()
     {
-        //isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        grounded = isGrounded();
 
-        if (Input.GetButtonDown("Jump")) //isGrounded && 
+        if (Input.GetButtonDown("Jump") && grounded) //isGrounded && 
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+    }
+
+    public bool isGrounded()
+    {
+        if(Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
     }
 }

@@ -5,8 +5,10 @@ using TMPro;
 
 public class ShelfArrangeTaskBehaviour : MonoBehaviour
 {
+    //Shelf[8]
     public GameObject shelf11, shelf12, shelf13, shelf14, shelf21, shelf22, shelf23, shelf24;
 
+    //ShelfContents[8][4]
     public GameObject[] shelf11Items = new GameObject[4],
                         shelf12Items = new GameObject[4],
                         shelf13Items = new GameObject[4],
