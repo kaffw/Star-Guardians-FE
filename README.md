@@ -21,10 +21,10 @@ Behind the Human Facade is a 2D-platformer stealth game inspired by Philippine f
 
 ## Authors
 
-John Michael Coronel | Gameplay Programmer, Scripter, AI
+**John Michael Coronel** | *Gameplay Programmer, Scripter, AI*
 * GitHub: [kaffw](https://github.com/kaffw)
 
-Bianca Natalie Labrador | Artist and Game Designer
+**Bianca Natalie Labrador** | *Artist and Game Designer*
 * GitHub: [tokwanghilaw](https://github.com/tokwanghilaw)
 * Instagram: [@__biancanatalie](https://www.instagram.com/__biancanatalie)
   
