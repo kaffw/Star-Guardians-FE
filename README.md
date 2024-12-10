@@ -34,5 +34,5 @@ Bianca Natalie Labrador | Artist and Game Designer
 Game Inspirations
 * Among Us
 
-***Long live the Star Guardians ⋆✴︎˚｡⋆ !***
+<p align = 'center'> ***Long live the Star Guardians ⋆✴︎˚｡⋆ !*** </p>
 
