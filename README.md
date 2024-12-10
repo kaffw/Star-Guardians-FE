@@ -1,4 +1,4 @@
-# Behind the Human Facade (WIP: 85%)
+# Behind the Human Facade (WIP: 40%)
 
 A group dev project for CGAE203: 2D-Game Development finals by Star Guardians. ꒰ᐢ. .ᐢ꒱₊˚⊹
 
