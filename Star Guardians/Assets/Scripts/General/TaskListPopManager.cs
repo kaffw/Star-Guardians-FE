@@ -123,5 +123,11 @@ public class TaskListPopManager : MonoBehaviour
         scannerTask.isCleared = false;
         expireTask.isCleared = false;
         tagTask.isCleared = false;
+        
+        mopTaskGO.SetActive(true);
+        shelfTaskGO.SetActive(true);
+        scannerTaskGO.SetActive(true);
+        expireTaskGO.SetActive(true);
+        tagTaskGO.SetActive(true);
     }
 }
