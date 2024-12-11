@@ -81,3 +81,11 @@ public class ShelfItemBehaviour : MonoBehaviour
         defaultPos = transform.position;
     }
 }
+
+/*
+ * mouse pos movement
+ * 
+ *
+ *
+ * 
+ */
