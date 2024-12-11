@@ -20,7 +20,7 @@ public class ExpiredItemBehaviour : MonoBehaviour
             transform.SetParent(transform.parent.parent.Find("Expired Items"));
             //if no expired asset, expired item = grayscaled normal asset
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.color = new Color(50f / 255f, 50f / 255f, 50f / 255f, 1f);
+            spriteRenderer.color = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1f);
             
         }
         

@@ -73,49 +73,49 @@ public class ShelfArrangeTaskBehaviour : MonoBehaviour
             if (i != shelf11Item)
             {
                 shelf11Items[i].transform.SetParent(unarrangedHolder.transform);
-                shelf11Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+                shelf11Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 7), 0);
             }
             
             if (i != shelf12Item)
             {
                 shelf12Items[i].transform.SetParent(unarrangedHolder.transform);
-                shelf12Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+                shelf12Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 7), 0);
             }
 
             if (i != shelf13Item)
             {
                 shelf13Items[i].transform.SetParent(unarrangedHolder.transform);
-                shelf13Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+                shelf13Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 7), 0);
             }
 
             if (i != shelf14Item)
             {
                 shelf14Items[i].transform.SetParent(unarrangedHolder.transform);
-                shelf14Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+                shelf14Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 7), 0);
             }
 
             if (i != shelf21Item)
             {
                 shelf21Items[i].transform.SetParent(unarrangedHolder.transform);
-                shelf21Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+                shelf21Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 7), 0);
             }
             
             if (i != shelf22Item)
             {
                 shelf22Items[i].transform.SetParent(unarrangedHolder.transform);
-                shelf22Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+                shelf22Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 7), 0);
             }
 
             if (i != shelf23Item)
             {
                 shelf23Items[i].transform.SetParent(unarrangedHolder.transform);
-                shelf23Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+                shelf23Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 7), 0);
             }
 
             if (i != shelf24Item)
             {
                 shelf24Items[i].transform.SetParent(unarrangedHolder.transform);
-                shelf24Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 3), Random.Range(-3, 4), 0);
+                shelf24Items[i].transform.position = unarrangedHolder.transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 7), 0);
             }
         }
     }
