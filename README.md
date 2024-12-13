@@ -1,9 +1,9 @@
-# Behind the Human Facade (WIP: 40%)
+# Corazon: Between Day and Dusk (WIP: 40%)
 
 A group dev project for CGAE203: 2D-Game Development finals by Star Guardians. ꒰ᐢ. .ᐢ꒱₊˚⊹
 
 ## Description
-Behind the Human Facade is a 2D-platformer stealth game inspired by Philippine folklore, following Corazon, a manananggal, who leads two lives. By day, she blends into the bustling city; by night, she hunts in the shadows, using her wits and stealth to survive. Torn between her human emotions and monstrous instincts, Corazon’s journey challenges players to balance secrecy and survival while unraveling the legacy of the manananggal myth. ✩₊˚.⋆☾⋆⁺₊✧
+Corazon: Between Day and Dusk is a 2D-platformer stealth game inspired by Philippine folklore, following Corazon, a manananggal, who leads two lives. By day, she blends into the bustling city; by night, she hunts in the shadows, using her wits and stealth to survive. Torn between her human emotions and monstrous instincts, Corazon’s journey challenges players to balance secrecy and survival while unraveling the legacy of the manananggal myth. ✩₊˚.⋆☾⋆⁺₊✧
 
 ## Getting Started
 
