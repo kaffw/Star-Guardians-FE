@@ -32,6 +32,7 @@ Behind the Human Facade is a 2D-platformer stealth game inspired by Philippine f
 
 Game Inspirations
 * Among Us
+* Yandere Simulator
 
 ***Long live the Star Guardians ⋆✴︎˚｡⋆ !***
 
