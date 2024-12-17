@@ -13,7 +13,8 @@ public class TaskListPopManager : MonoBehaviour
     public TaskSpawner mopTask, shelfTask, scannerTask, expireTask, tagTask;
     public static TextMeshProUGUI mopTaskText, shelfTaskText, scannerTaskText, expireTaskText, tagTaskText;
 
-    private int callInstance;
+    private bool callInstance;
+    public bool nightCallInstance;
 
     private CharacterManager charManager;
 
@@ -35,7 +36,8 @@ public class TaskListPopManager : MonoBehaviour
         humanTasks.SetActive(true);
         manananggalTasks.SetActive(false);
 
-        callInstance = 0;
+        callInstance = false;
+        nightCallInstance = false;
     }
 
     void Update()
@@ -48,19 +50,42 @@ public class TaskListPopManager : MonoBehaviour
             expireTask.isCleared &&
             tagTask.isCleared &&
             charManager.isNight &&
-            callInstance == 0
+            !callInstance
         )
         {
-            callInstance++;
+            callInstance = true;
+
             humanTasks.SetActive(false);
             ResetHumanTasks();
             manananggalTasks.SetActive(true);
         }
 
-        //Transition to next day: task
-        if(Input.GetKeyDown(KeyCode.M))
+        //Transition to next day (Keybind): task
+        if(Input.GetKeyDown(KeyCode.M) && !nightCallInstance)
         {
+            nightCallInstance = true;
+
+            manananggalTasks.SetActive(false);
+            ResetManananggalTask();
             humanTasks.SetActive(true);
+        }
+
+        if(Input.GetKeyDown(KeyCode.N) && !callInstance)
+        {
+            callInstance = true;
+
+            humanTasks.SetActive(false);
+            ResetHumanTasks();
+            manananggalTasks.SetActive(true);
+        }
+
+        //Transition to next day (auto): task
+        if(!charManager.isNight && !nightCallInstance)
+        {
+            nightCallInstance = true;
+
+            humanTasks.SetActive(true);
+            ResetManananggalTask();
             manananggalTasks.SetActive(false);
         }
     }
@@ -129,5 +154,13 @@ public class TaskListPopManager : MonoBehaviour
         scannerTaskGO.SetActive(true);
         expireTaskGO.SetActive(true);
         tagTaskGO.SetActive(true);
+
+        callInstance = false;
+    }
+
+    void ResetManananggalTask()
+    {
+        Debug.Log("mnn task reset");
+        nightCallInstance = false;
     }
 }
