@@ -8,6 +8,7 @@ public class ManananggalAttack : MonoBehaviour
     //AerialMovement am;
 
     public GameObject target;
+    public GameObject biteVFX;
 
     void Awake()
     {
@@ -39,6 +40,7 @@ public class ManananggalAttack : MonoBehaviour
     void Attack()
     {
         Debug.Log("Manananggal Attacks" + target.name);
+        Instantiate(biteVFX, target.transform.position, transform.rotation);
         Destroy(target);
     }
 }

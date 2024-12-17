@@ -4272,6 +4272,7 @@ MonoBehaviour:
   scannerTask: {fileID: 0}
   expireTask: {fileID: 0}
   tagTask: {fileID: 0}
+  nightCallInstance: 0
 --- !u!1 &923075067
 GameObject:
   m_ObjectHideFlags: 0
@@ -5834,6 +5835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetInRange: 0
   target: {fileID: 0}
+  biteVFX: {fileID: 8817458631952491184, guid: a0d70744de588fa4599fd16fe93390e3, type: 3}
 --- !u!1 &1321338350
 GameObject:
   m_ObjectHideFlags: 0
@@ -6831,7 +6833,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1345745968}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.5353867
+  m_Size: 0.53538674
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
