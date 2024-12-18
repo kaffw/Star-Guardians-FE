@@ -10,9 +10,12 @@ public class DayAndNightTaskManager : MonoBehaviour
     bool dayLimit, nightLimit;
 
     private CharacterManager charManager;
+    private NPCManager npcManager;
+
     private void Awake()
     {
         charManager = GameObject.Find("Character Manager").GetComponent<CharacterManager>();
+        npcManager = GameObject.FindObjectOfType<NPCManager>();
     }
     private void Start()
     {
@@ -69,6 +72,10 @@ public class DayAndNightTaskManager : MonoBehaviour
     {
         dayCount++;
         dayLimit = true;
+        
+        //Activate NPCs
+        npcManager.ResetNPC();
+
         Debug.Log("dCount = " + dayCount);
     }
 

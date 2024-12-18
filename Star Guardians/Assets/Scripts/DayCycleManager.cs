@@ -47,8 +47,6 @@ public class DayCycleManager : MonoBehaviour
     {
         callLimitMorning = true;
         callLimitNight = true;
-
-
     }
 
     void Update()
@@ -107,6 +105,16 @@ public class DayCycleManager : MonoBehaviour
 
             callLimitMorning = true;
             callLimitNight = true;
+        }
+
+        /*Not included in deployment: skip day/night */
+        if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.M))
+        {
+            timer = 358f;
+        }
+        if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.N))
+        {
+            timer = 178f;
         }
     }
 

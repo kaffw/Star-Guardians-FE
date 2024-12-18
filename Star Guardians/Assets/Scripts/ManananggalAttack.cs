@@ -45,6 +45,8 @@ public class ManananggalAttack : MonoBehaviour
         Debug.Log("Manananggal Attacks" + target.name);
         tlpManager.devCount++;
         Instantiate(biteVFX, target.transform.position, transform.rotation);
-        Destroy(target);
+        
+        target.SetActive(false);
+        target = null;
     }
 }
