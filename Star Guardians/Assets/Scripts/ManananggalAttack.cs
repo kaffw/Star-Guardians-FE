@@ -10,9 +10,12 @@ public class ManananggalAttack : MonoBehaviour
     public GameObject target;
     public GameObject biteVFX;
 
+    TaskListPopManager tlpManager;
+
     void Awake()
     {
         //am = GameObject.Find("Upper Body").GetComponent<AerialMovement>();
+        tlpManager = GameObject.FindObjectOfType<TaskListPopManager>();
     }
 
     void Update()
@@ -40,6 +43,7 @@ public class ManananggalAttack : MonoBehaviour
     void Attack()
     {
         Debug.Log("Manananggal Attacks" + target.name);
+        tlpManager.devCount++;
         Instantiate(biteVFX, target.transform.position, transform.rotation);
         Destroy(target);
     }

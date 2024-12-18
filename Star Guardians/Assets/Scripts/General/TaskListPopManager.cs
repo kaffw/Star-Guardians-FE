@@ -6,17 +6,29 @@ using TMPro;
 public class TaskListPopManager : MonoBehaviour
 {
     Animator taskListAnim;
-    
+
+    [Header("Tasks")]
     public GameObject humanTasks, manananggalTasks;
-    
-    public GameObject mopTaskGO, shelfTaskGO, scannerTaskGO, expireTaskGO, tagTaskGO;
+
+    [Header("Task Interactables")]    
+    public GameObject mopTaskGO;
+    public GameObject shelfTaskGO, scannerTaskGO, expireTaskGO, tagTaskGO;
     public TaskSpawner mopTask, shelfTask, scannerTask, expireTask, tagTask;
+
+    //TaskText
     public static TextMeshProUGUI mopTaskText, shelfTaskText, scannerTaskText, expireTaskText, tagTaskText;
+
+    //manananggal TaskText
+    public TextMeshProUGUI manananggalDevourTask, locateLowerBodyTask;
 
     private bool callInstance;
     public bool nightCallInstance;
 
     private CharacterManager charManager;
+    private DayAndNightTaskManager dntManager;
+
+    public int devCount;
+    private int devGoal;
 
     enum AnimationStates
     {
@@ -27,7 +39,7 @@ public class TaskListPopManager : MonoBehaviour
     {
         taskListAnim = GameObject.Find("Task List").GetComponent<Animator>();
         charManager = GameObject.Find("Character Manager").GetComponent<CharacterManager>();
-
+        dntManager = GameObject.FindObjectOfType<DayAndNightTaskManager>();
         SetTasks();
     }
 
@@ -38,26 +50,39 @@ public class TaskListPopManager : MonoBehaviour
 
         callInstance = false;
         nightCallInstance = false;
+        
+        devCount = 0;
     }
 
     void Update()
     {
         //call this when night
-        if(
-            mopTask.isCleared &&
-            shelfTask.isCleared &&
-            scannerTask.isCleared &&
-            expireTask.isCleared &&
-            tagTask.isCleared &&
-            charManager.isNight &&
-            !callInstance
-        )
+        if(charManager.isNight)
         {
-            callInstance = true;
+            if(devCount == devGoal)
+            {
+                  manananggalDevourTask.color = Color.red;
+                  devCount++;//disable re-call
+            }
 
-            humanTasks.SetActive(false);
-            ResetHumanTasks();
-            manananggalTasks.SetActive(true);
+            if(!callInstance)
+            {
+                callInstance = true;
+
+                humanTasks.SetActive(false);
+                ResetHumanTasks();
+                manananggalTasks.SetActive(true);
+            }
+        }
+
+        //Transition to next day (auto): task
+        if(!charManager.isNight && !nightCallInstance)
+        {
+            nightCallInstance = true;
+
+            humanTasks.SetActive(true);
+            ResetManananggalTask();
+            manananggalTasks.SetActive(false);
         }
 
         //Transition to next day (Keybind): task
@@ -77,16 +102,6 @@ public class TaskListPopManager : MonoBehaviour
             humanTasks.SetActive(false);
             ResetHumanTasks();
             manananggalTasks.SetActive(true);
-        }
-
-        //Transition to next day (auto): task
-        if(!charManager.isNight && !nightCallInstance)
-        {
-            nightCallInstance = true;
-
-            humanTasks.SetActive(true);
-            ResetManananggalTask();
-            manananggalTasks.SetActive(false);
         }
     }
 
@@ -160,7 +175,20 @@ public class TaskListPopManager : MonoBehaviour
 
     void ResetManananggalTask()
     {
-        Debug.Log("mnn task reset");
+        //Debug.Log("mnn task reset");
+        int nc = 5 + (1 * dntManager.nightCount);
+        devCount = 0;
+        devGoal = nc;
+        manananggalDevourTask.color = Color.white;
+        manananggalDevourTask.text = "Devour " + nc + " people.";
         nightCallInstance = false;
     }
 }
+
+/*
+mopTask.isCleared &&
+shelfTask.isCleared &&
+scannerTask.isCleared &&
+expireTask.isCleared &&
+tagTask.isCleared &&
+*/
