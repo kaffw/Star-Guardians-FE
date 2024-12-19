@@ -5,7 +5,7 @@ using UnityEngine;
 public class ManananggalAttack : MonoBehaviour
 {
     public bool targetInRange = false;
-    //AerialMovement am;
+    AerialMovement am;
 
     public GameObject target;
     public GameObject biteVFX;
@@ -14,18 +14,22 @@ public class ManananggalAttack : MonoBehaviour
 
     void Awake()
     {
-        //am = GameObject.Find("Upper Body").GetComponent<AerialMovement>();
+        am = GameObject.Find("Upper Body").GetComponent<AerialMovement>();
         tlpManager = GameObject.FindObjectOfType<TaskListPopManager>();
     }
 
     void Update()
     {
-        if (targetInRange)
+        if(!AbilityCooldown.abilityInAction)
         {
-            if (Input.GetMouseButtonDown(0) && target != null)
+            if (targetInRange)
             {
-                //am.Attack();
-                Attack();
+                if (Input.GetMouseButtonDown(0) && target != null)
+                {
+                    AbilityCooldown.devourCooldown = 1f;
+                    AbilityCooldown.abilityInAction = true;
+                    Attack();
+                }
             }
         }
     }
@@ -34,7 +38,15 @@ public class ManananggalAttack : MonoBehaviour
     {
         if (other.CompareTag("NPC") || other.CompareTag("NPCHunter"))
         {
-            //Debug.Log(other.name + "is within manananggal attack range");
+            targetInRange = true;
+            target = other.gameObject;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("NPC") || other.CompareTag("NPCHunter"))
+        {
             targetInRange = true;
             target = other.gameObject;
         }
@@ -46,6 +58,8 @@ public class ManananggalAttack : MonoBehaviour
         tlpManager.devCount++;
         Instantiate(biteVFX, target.transform.position, transform.rotation);
         
+        StartCoroutine(am.AttackDash(target));
+
         target.SetActive(false);
         target = null;
     }
