@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
-    public GameObject upperBodyGameOver, lowerBodyGameOver;
+    public GameObject upperBodyGameOver, humanGameOver;
     
     private bool called = false;
 
@@ -17,9 +17,10 @@ public class GameOverManager : MonoBehaviour
             called = true;
         }
 
-        if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.L))
+        if(!called && Input.GetKey(KeyCode.V))
         {
-            LowerBodyGameOver();
+            HumanGameOver();
+            called = true;
         }
     }
 
@@ -28,9 +29,9 @@ public class GameOverManager : MonoBehaviour
         upperBodyGameOver.SetActive(true);
     }
 
-    public void LowerBodyGameOver()
+    public void HumanGameOver()
     {
-        lowerBodyGameOver.SetActive(true);
+        humanGameOver.SetActive(true);
     }
 
     public void YES()
