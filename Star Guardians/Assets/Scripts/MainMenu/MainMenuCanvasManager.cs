@@ -61,7 +61,7 @@ public class MainMenuCanvasManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= 30)
+        if (timer >= 5)
         {
             timer = 0f;
             splashIndex = (splashIndex == 0) ? 1 : 0;
