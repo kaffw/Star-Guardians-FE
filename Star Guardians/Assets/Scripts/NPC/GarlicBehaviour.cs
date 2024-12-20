@@ -7,12 +7,14 @@ public class GarlicBehaviour : MonoBehaviour
     Rigidbody2D rb;
     CharacterManager chManager;
     AerialMovement am;
+    LowerBodyMovementBehaviour lbm;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         chManager = GameObject.FindObjectOfType<CharacterManager>();
         am = GameObject.FindObjectOfType<AerialMovement>().GetComponent<AerialMovement>();
+        lbm = GameObject.FindObjectOfType<LowerBodyMovementBehaviour>().GetComponent<LowerBodyMovementBehaviour>();
     }
 
     void Start()
@@ -28,6 +30,13 @@ public class GarlicBehaviour : MonoBehaviour
         {
             chManager.ReceiveDamage();
             am.CallHitIndicator();
+            Destroy(gameObject);
+        }
+
+        if(other.CompareTag("LowerBody"))
+        {
+            chManager.ReceiveDamage();
+            lbm.CallHitIndicator();
             Destroy(gameObject);
         }
     }

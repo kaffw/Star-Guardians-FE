@@ -97,6 +97,10 @@ public class AerialMovement : MonoBehaviour
         sr.color = Color.red;
         yield return new WaitForSeconds(0.3f);
         sr.color = Color.white;
+        yield return new WaitForSeconds(0.3f);
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        sr.color = Color.white;
 
         yield return null;
     }

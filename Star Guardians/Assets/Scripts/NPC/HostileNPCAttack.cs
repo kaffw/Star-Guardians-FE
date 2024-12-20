@@ -30,7 +30,7 @@ public class HostileNPCAttack : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("UpperBody"))
+        if(other.CompareTag("UpperBody") || other.CompareTag("LowerBody"))
         {
             targetInRange = true;
             target = other.gameObject;
@@ -39,7 +39,7 @@ public class HostileNPCAttack : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.CompareTag("UpperBody"))
+        if(other.CompareTag("UpperBody") || other.CompareTag("LowerBody"))
         {
             targetInRange = false;
             target = null;

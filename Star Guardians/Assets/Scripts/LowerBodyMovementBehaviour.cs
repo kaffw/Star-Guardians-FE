@@ -10,7 +10,7 @@ public class LowerBodyMovementBehaviour : MonoBehaviour
     public float jumpForce = 10f;
 
     private Rigidbody2D rb;
-
+    private SpriteRenderer sr;
     //public Transform groundCheck;
     //public LayerMask groundLayer;
     //private bool isGrounded;
@@ -20,6 +20,7 @@ public class LowerBodyMovementBehaviour : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -46,5 +47,23 @@ public class LowerBodyMovementBehaviour : MonoBehaviour
     void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+    }
+
+    public IEnumerator HitIndicator()
+    {
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        sr.color = Color.white;
+        yield return new WaitForSeconds(0.3f);
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        sr.color = Color.white;
+
+        yield return null;
+    }
+
+    public void CallHitIndicator()
+    {
+        StartCoroutine(HitIndicator());
     }
 }
