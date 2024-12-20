@@ -15,21 +15,32 @@ public class CharacterManager : MonoBehaviour
     public MonoBehaviour upperBodyMovement, lowerBodyMovement;
     public GameObject upperBodyCam, lowerBodyCam, humanBodyCam;
 
-    //not yet used
+    //States
     public enum BodyState { Human, Manananggal };
     public BodyState state;
-    //public bool isDetached = false; //for manananggal state
 
+    //GameObjects - Player Bodies
     public GameObject humanGO;
     public GameObject manananggalUpperGO;
     public GameObject manananggalLowerGO;
     Vector3 spawnPos;
 
+    //Manananggal Devour Attack
     public AerialMovement am;
+    public GameObject abilityIcon;
+    private bool abilityCallOnce;
+
+    //Stats
+    public static int hp;
+    private float iF; // I-Frame
 
     void Awake()
     {
         am = GameObject.Find("Upper Body").GetComponent<AerialMovement>();
+        abilityCallOnce = false;
+
+        hp = 3;
+        iF = 1f;
     }
 
     void Update()
@@ -37,25 +48,43 @@ public class CharacterManager : MonoBehaviour
         if (isNight)
         {
             state = BodyState.Manananggal;
+
+            if(!abilityCallOnce)
+            {
+                abilityCallOnce = true;
+                abilityIcon.SetActive(true);
+            }
+
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 UpperBodyMode();
+                abilityIcon.SetActive(true);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 LowerBodyMode();
+                abilityIcon.SetActive(false);
             }
         }
         else
         {
             state = BodyState.Human;
+            abilityCallOnce = false;
             humanBodyCam.SetActive(true);
+            abilityIcon.SetActive(false);
         }
 
         if (state == BodyState.Manananggal)
         {
             am.Descent();
         }
+
+        if(hp == 0)
+        {
+            Debug.Log("Game Over");
+        }
+
+        iF -= Time.deltaTime;
     }
 
     public void UpperBodyMode()
@@ -88,7 +117,7 @@ public class CharacterManager : MonoBehaviour
         //Check if mUB is within mLB, keybind, call AttachBody.
 
         profileImage.sprite = profileSprite[0];
-        spawnPos = manananggalLowerGO.transform.position;
+        spawnPos = manananggalLowerGO.transform.position + new Vector3(0f ,1f ,0f);
         humanGO.SetActive(true);
 
         manananggalUpperGO.SetActive(false);
@@ -110,11 +139,22 @@ public class CharacterManager : MonoBehaviour
         manananggalUpperGO.SetActive(true);
         manananggalLowerGO.SetActive(true);
 
-        manananggalUpperGO.transform.position = spawnPos + new Vector3(0f, 1f, 0f);
-        manananggalLowerGO.transform.position = spawnPos;
+        manananggalUpperGO.transform.position = spawnPos;
+        manananggalLowerGO.transform.position = spawnPos - new Vector3(0f, 1f, 0f);
         
         UpperBodyMode();
         //isNight = true;
+    }
+
+    public void ReceiveDamage()
+    {
+        if(iF <= 0)
+        {
+            hp--;
+            Debug.Log("hp = " + hp);
+        }
+
+        iF = 1f;
     }
 }
 /*

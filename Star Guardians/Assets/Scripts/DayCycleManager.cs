@@ -200,8 +200,8 @@ public class DayCycleManager : MonoBehaviour
     private IEnumerator NewspaperPopUp()
     {
         newspaper.SetActive(true);
-        Image img = newspaperImage.GetComponent<Image>(); 
-        img.sprite = newspaperImageCollection[Random.Range(0, newspaperImageCollection.Length)];
+        //Image img = newspaperImage.GetComponent<Image>(); 
+        //img.sprite = newspaperImageCollection[Random.Range(0, newspaperImageCollection.Length)];
         
         yield return new WaitForSeconds(3f);
         newspaper.SetActive(false);

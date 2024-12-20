@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class AerialMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 8f;
     public float jumpForce = 5f;
 
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
 
         rb.gravityScale = 0f;
     }
@@ -67,6 +70,15 @@ public class AerialMovement : MonoBehaviour
         }
 
         rb.isKinematic = false;
+
+        yield return null;
+    }
+
+    public IEnumerator HitIndicator()
+    {
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        sr.color = Color.white;
 
         yield return null;
     }

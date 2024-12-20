@@ -11,19 +11,23 @@ public class NPCMovementBehaviour : MonoBehaviour
     private Rigidbody2D rb;
     private bool inJump = false;
 
-    private Coroutine moveCoroutine; // Track the Move coroutine
+    private Coroutine moveCoroutine;
 
     private int targetFloor;
 
     private bool isPanic;
+    private bool isHostile;
+
+    private GameObject ub;
     
-    private GameObject ub; //mUB
-    
+    public enum NPCTypeEnum { Nonhostile, Hostile }
+    public NPCTypeEnum npcType;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
 
         isPanic = false;
+        isHostile = false;
     }
 
     void Update()
@@ -32,17 +36,33 @@ public class NPCMovementBehaviour : MonoBehaviour
         {
             SetTargetPoint();
         }
-
-        if(isPanic)
+        if(npcType == NPCTypeEnum.Hostile)
         {
-            if(!targetReached)
+            if(isHostile)
             {
-                StopAllCoroutines();
-                targetReached = true;
-                rb.velocity = new Vector3(0, 0, 0);
-            }
+                if(!targetReached)
+                {
+                    StopAllCoroutines();
+                    targetReached = true;
+                    rb.velocity = new Vector3(0, 0, 0);
+                }
 
-            Panic();
+                Hostile();
+            }
+        }
+        else
+        {
+            if(isPanic)
+            {
+                if(!targetReached)
+                {
+                    StopAllCoroutines();
+                    targetReached = true;
+                    rb.velocity = new Vector3(0, 0, 0);
+                }
+
+                Panic();
+            }
         }
     }
 
@@ -89,8 +109,17 @@ public class NPCMovementBehaviour : MonoBehaviour
         if (other.CompareTag("UpperBody"))
         {
             ub = other.gameObject;
-            moveSpeed = 5f;
-            isPanic = true;
+
+            if(npcType == NPCTypeEnum.Hostile)
+            {
+                moveSpeed = 5f;
+                isHostile = true;
+            }
+            else
+            {
+                moveSpeed = 4f;
+                isPanic = true;
+            }
         }
     }
 
@@ -100,12 +129,20 @@ public class NPCMovementBehaviour : MonoBehaviour
         {
             moveSpeed = 2f;
             isPanic = false;
+            isHostile = false;
         }
     }
 
     void Panic()
     {
         float direction = (transform.position.x > ub.transform.position.x) ? 1f : -1f;
+
+        rb.velocity = new Vector2(direction * moveSpeed, rb.velocity.y);
+    }
+
+    void Hostile()
+    {
+        float direction = (transform.position.x < ub.transform.position.x) ? 1f : -1f;
 
         rb.velocity = new Vector2(direction * moveSpeed, rb.velocity.y);
     }

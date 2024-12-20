@@ -11,11 +11,13 @@ public class DayAndNightTaskManager : MonoBehaviour
 
     private CharacterManager charManager;
     private NPCManager npcManager;
+    private HostileNPCManager hnpcManager;
 
     private void Awake()
     {
         charManager = GameObject.Find("Character Manager").GetComponent<CharacterManager>();
         npcManager = GameObject.FindObjectOfType<NPCManager>();
+        hnpcManager = GameObject.FindObjectOfType<HostileNPCManager>();
     }
     private void Start()
     {
@@ -23,6 +25,7 @@ public class DayAndNightTaskManager : MonoBehaviour
         Debug.Log("nCount = " + nightCount);
 
         AssignDayTask();
+        hnpcManager.DisableNPC();
     }
 
     private void Update()
@@ -75,6 +78,7 @@ public class DayAndNightTaskManager : MonoBehaviour
         
         //Activate NPCs
         npcManager.ResetNPC();
+        hnpcManager.DisableNPC();
 
         Debug.Log("dCount = " + dayCount);
     }
@@ -83,6 +87,10 @@ public class DayAndNightTaskManager : MonoBehaviour
     {
         nightCount++;
         nightLimit = true;
+
+        //Activate holstile NPCS
+        hnpcManager.ResetHostileNPC();
+        
         Debug.Log("nCount = " + nightCount);
     }
 
