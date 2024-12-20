@@ -11,9 +11,9 @@ public class TaskListPopManager : MonoBehaviour
     public GameObject humanTasks, manananggalTasks;
 
     [Header("Task Interactables")]    
-    public GameObject mopTaskGO;
-    public GameObject shelfTaskGO, scannerTaskGO, expireTaskGO, tagTaskGO;
-    public TaskSpawner mopTask, shelfTask, scannerTask, expireTask, tagTask;
+    [HideInInspector] public GameObject mopTaskGO;
+    [HideInInspector] public GameObject shelfTaskGO, scannerTaskGO, expireTaskGO, tagTaskGO;
+    [HideInInspector] public TaskSpawner mopTask, shelfTask, scannerTask, expireTask, tagTask;
 
     //TaskText
     public static TextMeshProUGUI mopTaskText, shelfTaskText, scannerTaskText, expireTaskText, tagTaskText;

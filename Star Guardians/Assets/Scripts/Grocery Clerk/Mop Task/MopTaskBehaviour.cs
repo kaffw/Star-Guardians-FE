@@ -5,7 +5,7 @@ using TMPro;
 
 public class MopTaskBehaviour : MonoBehaviour
 {
-    public GameObject puddle;
+    public GameObject[] puddle;
     public GameObject mop;
 
     private GameObject puddleCollection;
@@ -24,13 +24,16 @@ public class MopTaskBehaviour : MonoBehaviour
     {
         puddleCollection = gameObject.transform.Find("Puddles").gameObject;
 
-        for (int i = 0; i < Random.Range(2, 5); i++)
+        for (int i = 0; i < Random.Range(5, 10); i++)
         {
+            int rand = Random.Range(0, 5);
+
             GameObject newPuddle = Instantiate(
-                puddle,
+                puddle[rand],
                 transform.position + new Vector3(Random.Range(-5, 6), Random.Range(-5, 6), 0),
                 transform.rotation
             );
+
             newPuddle.transform.SetParent(puddleCollection.transform);
         }
 

@@ -52,12 +52,22 @@ public class ManananggalAttack : MonoBehaviour
         }
     }
 
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("NPC") || other.CompareTag("NPCHunter"))
+        {
+            targetInRange = false;
+            target = null;;
+        }
+    }
+
     void Attack()
     {
         Debug.Log("Manananggal Attacks" + target.name);
         tlpManager.devCount++;
-        Instantiate(biteVFX, target.transform.position, transform.rotation);
+        if(CharacterManager.hp < 3) CharacterManager.hp++;
         
+        Instantiate(biteVFX, target.transform.position, transform.rotation);
         StartCoroutine(am.AttackDash(target));
 
         target.SetActive(false);

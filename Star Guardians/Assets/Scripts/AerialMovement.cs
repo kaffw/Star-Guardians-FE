@@ -10,18 +10,25 @@ public class AerialMovement : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
 
+    private bool inAttack;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
 
         rb.gravityScale = 0f;
+
+        inAttack = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ManananggalMove();
+        if(!inAttack)
+        {
+            ManananggalMove();
+        }
     }
 
     private void ManananggalMove()
@@ -58,7 +65,11 @@ public class AerialMovement : MonoBehaviour
         float distanceCovered = 0f;
     
         rb.isKinematic = true;
-
+        
+        StartCoroutine(AttackCooldown());
+        
+        rb.velocity = Vector3.zero;
+        
         while (distanceCovered < journeyLength)
         {
             float step = dashSpeed * Time.deltaTime;
@@ -70,8 +81,15 @@ public class AerialMovement : MonoBehaviour
         }
 
         rb.isKinematic = false;
-
+        inAttack = false;
         yield return null;
+    }
+
+    IEnumerator AttackCooldown()
+    {
+        inAttack = true;
+        yield return new WaitForSeconds(1f);
+        inAttack = false;
     }
 
     public IEnumerator HitIndicator()
@@ -81,6 +99,11 @@ public class AerialMovement : MonoBehaviour
         sr.color = Color.white;
 
         yield return null;
+    }
+
+    public void CallHitIndicator()
+    {
+        StartCoroutine(HitIndicator());
     }
 }
 

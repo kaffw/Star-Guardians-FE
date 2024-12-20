@@ -27,7 +27,8 @@ public class GarlicBehaviour : MonoBehaviour
         if(other.CompareTag("UpperBody"))
         {
             chManager.ReceiveDamage();
-            StartCoroutine(am.HitIndicator());
+            am.CallHitIndicator();
+            Destroy(gameObject);
         }
     }
 }

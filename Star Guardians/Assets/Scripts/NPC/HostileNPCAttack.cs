@@ -18,10 +18,10 @@ public class HostileNPCAttack : MonoBehaviour
     {
         attackTimer += Time.deltaTime;
 
-        Look = transform.InverseTransformPoint(target.transform.position);
+        if(target != null)Look = transform.InverseTransformPoint(target.transform.position);
         angle = Mathf.Atan2(Look.y, Look.x) * Mathf.Rad2Deg;
 
-        if(targetInRange && attackTimer >= attackRate)
+        if(targetInRange && attackTimer >= attackRate && target != null)
         {
             attackTimer = 0f;
             Attack();
