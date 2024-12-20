@@ -9,6 +9,8 @@ public class GameOverVignette : MonoBehaviour
     float fadeVal;
     Color changedColor;
 
+    public GameObject gameOverMessage;
+
     void Start()
     {
         fade = GetComponent<Image>();
@@ -20,5 +22,10 @@ public class GameOverVignette : MonoBehaviour
         fadeVal += Time.deltaTime / 3f;
         changedColor = new Color(0f, 0f, 0f, fadeVal);    
         fade.color = changedColor;
+
+        if(fadeVal >= 1)
+        {
+            gameOverMessage.SetActive(true);
+        }
     }
 }

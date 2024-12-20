@@ -29,6 +29,7 @@ public class TaskListPopManager : MonoBehaviour
 
     public int devCount;
     private int devGoal;
+    public bool nightTaskCleared;
 
     enum AnimationStates
     {
@@ -63,6 +64,7 @@ public class TaskListPopManager : MonoBehaviour
             {
                   manananggalDevourTask.color = Color.red;
                   devCount++;//disable re-call
+                  nightTaskCleared = true;
             }
 
             if(!callInstance)
@@ -179,6 +181,7 @@ public class TaskListPopManager : MonoBehaviour
         int nc = 5 + (1 * dntManager.nightCount);
         devCount = 0;
         devGoal = nc;
+        nightTaskCleared = false;
         manananggalDevourTask.color = Color.white;
         manananggalDevourTask.text = "Devour " + nc + " people.";
         nightCallInstance = false;

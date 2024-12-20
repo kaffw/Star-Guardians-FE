@@ -8,16 +8,30 @@ public class GameOverManager : MonoBehaviour
     public GameObject upperBodyGameOver, humanGameOver;
     
     private bool called = false;
+    
+    public DayAndNightTaskManager dntManager;
+    public TaskListPopManager tlpManager;
+    void Awake()
+    {
+        dntManager = GameObject.FindObjectOfType<DayAndNightTaskManager>();
+        tlpManager = GameObject.FindObjectOfType<TaskListPopManager>();
+    }
 
     void Update()
     {
-        if(!called && CharacterManager.hp == 0)
+        if(!called && (CharacterManager.hp == 0 || Input.GetKey(KeyCode.B)))
         {
             UpperBodyGameOver();
             called = true;
         }
 
         if(!called && Input.GetKey(KeyCode.V))
+        {
+            HumanGameOver();
+            called = true;
+        }
+
+        if(dntManager.dayCount == 5 && dntManager.nightCount == 5 && tlpManager.nightTaskCleared) //&& night task cleared
         {
             HumanGameOver();
             called = true;
