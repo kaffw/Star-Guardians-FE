@@ -7,6 +7,11 @@ public class PauseManager : MonoBehaviour
 {
     public GameObject PauseCanvas;
 
+    void Start()
+    {
+        Time.timeScale = 1;
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
