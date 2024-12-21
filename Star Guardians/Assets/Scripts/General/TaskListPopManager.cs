@@ -31,6 +31,10 @@ public class TaskListPopManager : MonoBehaviour
     private int devGoal;
     public bool nightTaskCleared;
 
+    public static int firedCounter;
+    private bool firedCalled;
+    public GameObject firedCanvasPopUp;
+
     enum AnimationStates
     {
         isOpen
@@ -53,10 +57,39 @@ public class TaskListPopManager : MonoBehaviour
         nightCallInstance = false;
         
         devCount = 0;
+        firedCounter = 0;
+        firedCalled = false;
     }
 
     void Update()
     {
+        //check if human is fired from her job (did not cleared tasks for 3 days)
+        if(firedCounter == 3)
+        {
+            Debug.Log("You are fired");
+            firedCanvasPopUp.SetActive(true);
+        }
+        if(charManager.isNight && !firedCalled)
+        {
+            firedCalled = true;
+
+            if(
+                mopTask.isCleared == false ||
+                shelfTask.isCleared == false ||
+                scannerTask.isCleared == false ||
+                expireTask.isCleared == false ||
+                tagTask.isCleared == false
+            )
+            {
+                firedCounter++;
+                Debug.Log("Fired counter = " + firedCounter);
+            }
+        }
+        else if (!charManager.isNight)
+        {
+            firedCalled = false;
+        }
+
         //call this when night
         if(charManager.isNight)
         {
@@ -72,6 +105,7 @@ public class TaskListPopManager : MonoBehaviour
                 callInstance = true;
 
                 humanTasks.SetActive(false);
+
                 ResetHumanTasks();
                 manananggalTasks.SetActive(true);
             }

@@ -18,6 +18,11 @@ public class ScanTaskBehaviour : MonoBehaviour
         itemCollection = GameObject.Find("Item Collection");
     }
 
+    void Start()
+    {
+        CharacterMovement.inAction = true;
+    }
+
     void Update()
     {
         if (itemCollection.transform.childCount == 0 && callLimit)
@@ -29,7 +34,7 @@ public class ScanTaskBehaviour : MonoBehaviour
             clearedHandler.isCleared = true;
             TaskListPopManager.scannerTaskText.color = Color.green;
             taskSpawnerGO.SetActive(false);
-            
+            CharacterMovement.inAction = false;
             Destroy(gameObject, 1f);
         }
     }

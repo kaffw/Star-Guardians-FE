@@ -32,6 +32,7 @@ public class ShelfArrangeTaskBehaviour : MonoBehaviour
     private void Start()
     {
         Unarranged();
+        CharacterMovement.inAction = true;
     }
 
     private void Update()
@@ -52,7 +53,7 @@ public class ShelfArrangeTaskBehaviour : MonoBehaviour
             clearedHandler.isCleared = true;
             TaskListPopManager.shelfTaskText.color = Color.green;
             taskSpawnerGO.SetActive(false);
-
+            CharacterMovement.inAction = false;
             Destroy(gameObject, 1f);
         }
     }

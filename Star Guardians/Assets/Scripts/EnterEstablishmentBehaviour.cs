@@ -16,6 +16,7 @@ public class EnterEstablishmentBehaviour : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            indicator.SetActive(true);
             StartCoroutine(WaitForInteraction());
         }
     }
@@ -24,6 +25,7 @@ public class EnterEstablishmentBehaviour : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            indicator.SetActive(false);
             StopAllCoroutines();
         }
     }
@@ -32,7 +34,7 @@ public class EnterEstablishmentBehaviour : MonoBehaviour
     {
         while (true)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 EnterEstablishment();
                 yield break;

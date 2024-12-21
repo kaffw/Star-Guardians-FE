@@ -12,16 +12,20 @@ public class TaskSpawner : MonoBehaviour
 
     public bool isCleared;
 
+    private float levVal;
+    private float levTimer;
+
     void Start()
     {
         isCleared = false;
+        levVal = transform.position.y;
     }
 
     void Update()
     {
         if (inRange)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Task instantiated");
 
@@ -30,6 +34,21 @@ public class TaskSpawner : MonoBehaviour
             }
         }
 
+        Levitate();
+    }
+
+    void Levitate()
+    {
+        levTimer += Time.deltaTime;
+        
+        if(levTimer >= 0f && levTimer <= 1f)
+            levVal += Time.deltaTime;
+        else if(levTimer >= 1f && levTimer <= 2f)
+            levVal -= Time.deltaTime;
+        else
+            levTimer = 0f;
+
+        transform.position = new Vector3(transform.position.x, levVal, transform.position.z);
     }
 
     void OnTriggerEnter2D(Collider2D other)

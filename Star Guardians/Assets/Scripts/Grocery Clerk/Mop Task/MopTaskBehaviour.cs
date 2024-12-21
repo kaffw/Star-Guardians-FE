@@ -22,6 +22,7 @@ public class MopTaskBehaviour : MonoBehaviour
 
     void Start()
     {
+        CharacterMovement.inAction = true;
         puddleCollection = gameObject.transform.Find("Puddles").gameObject;
 
         for (int i = 0; i < Random.Range(5, 10); i++)
@@ -43,6 +44,7 @@ public class MopTaskBehaviour : MonoBehaviour
 
     void Update()
     {
+        
         if (puddleCollection.transform.childCount == 0 && !oneInstance)
         {
             oneInstance = true;
@@ -53,7 +55,7 @@ public class MopTaskBehaviour : MonoBehaviour
             clearedHandler.isCleared = true;
             TaskListPopManager.mopTaskText.color = Color.green;
             taskSpawnerGO.SetActive(false);
-
+            CharacterMovement.inAction = false;
             Destroy(gameObject, 1f);
         }
     }

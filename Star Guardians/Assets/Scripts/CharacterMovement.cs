@@ -14,15 +14,24 @@ public class CharacterMovement : MonoBehaviour
     bool grounded;
     public LayerMask groundLayer;
 
+    public static bool inAction;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        inAction = false;
     }
 
     void Update()
     {
-        HumanMove();
-        Jump();
+        if(!inAction)
+        {
+            HumanMove();
+            Jump();
+        }
+        else {
+            rb.velocity = Vector2.zero;
+        }
     }
 
     private void HumanMove()

@@ -29,11 +29,14 @@ public class DayCycleManager : MonoBehaviour
     public GameObject newspaper, newspaperImage;
     public Sprite[] newspaperImageCollection;
 
+    public AudioManager aManager;
+
     private void Awake()
     {
         charManager = GameObject.Find("Character Manager").GetComponent<CharacterManager>();
         dayAndNightTaskManager = GameObject.Find("Day And Night Task Manager").GetComponent<DayAndNightTaskManager>();
-        
+        aManager = GameObject.FindObjectOfType<AudioManager>();
+
         volume = GameObject.Find("Global Volume").GetComponent<Volume>();
         volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
 
@@ -47,6 +50,7 @@ public class DayCycleManager : MonoBehaviour
     {
         callLimitMorning = true;
         callLimitNight = true;
+        aManager.PlayMorningBGM();
     }
 
     void Update()
@@ -145,6 +149,7 @@ public class DayCycleManager : MonoBehaviour
             light.SetActive(true);
         }
 
+        aManager.PlayNightBGM();
         dayAndNightTaskManager.IncrementNight();
 
         endOfDay = true;
@@ -155,6 +160,7 @@ public class DayCycleManager : MonoBehaviour
     {
         StartCoroutine(DisableLights());
 
+        aManager.PlayMorningBGM();
         dayAndNightTaskManager.IncrementDay();
 
         endOfDay = false;

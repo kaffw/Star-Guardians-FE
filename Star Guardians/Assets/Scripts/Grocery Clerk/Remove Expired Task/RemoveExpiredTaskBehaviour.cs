@@ -21,6 +21,7 @@ public class RemoveExpiredTaskBehaviour : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SetExpiredItemsRemoved());
+        CharacterMovement.inAction = true;
     }
     private void Update()
     {
@@ -34,6 +35,7 @@ public class RemoveExpiredTaskBehaviour : MonoBehaviour
             TaskListPopManager.expireTaskText.color = Color.green;
             taskSpawnerGO.SetActive(false);
 
+            CharacterMovement.inAction = false;
             Destroy(gameObject, 1f);
         }
         else if(!oneInstance) expiredItemsRemoved = transform.Find("Expired Items").childCount;

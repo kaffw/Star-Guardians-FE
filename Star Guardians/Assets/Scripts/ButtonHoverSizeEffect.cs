@@ -9,6 +9,7 @@ public class ButtonHoverSizeEffect : MonoBehaviour, IPointerEnterHandler, IPoint
 
     void Start()
     {
+        transform.localScale = new Vector3(1f, 1f, 1f);
         originalScale = transform.localScale;
     }
 

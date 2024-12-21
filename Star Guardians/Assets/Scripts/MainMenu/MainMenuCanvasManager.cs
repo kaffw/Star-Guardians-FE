@@ -19,6 +19,8 @@ public class MainMenuCanvasManager : MonoBehaviour
     public GameObject optionsCanvas;
     public GameObject creditsCanvas;
 
+    public static bool skipHowToPlay = false;
+
     void Start()
     {
         timer = 0f;
@@ -29,20 +31,28 @@ public class MainMenuCanvasManager : MonoBehaviour
     {
         UpdateSplash();
     }
+
     public void PlayGame()
     {
         Debug.Log("Plays Game");
-        SceneManager.LoadScene(1);
+        if(!skipHowToPlay)
+        {
+            skipHowToPlay = true;
+            SceneManager.LoadScene("HowToPlay");
+        }
+        else SceneManager.LoadScene("World1");
     }
 
     public void EnterOptions()
     {
         optionsCanvas.SetActive(true);
+        mainMenuCanvas.SetActive(false);
         creditsCanvas.SetActive(false);
     }
 
     public void EnterCredits()
     {
+        mainMenuCanvas.SetActive(false);
         optionsCanvas.SetActive(false);
         creditsCanvas.SetActive(true);
 
@@ -50,13 +60,16 @@ public class MainMenuCanvasManager : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        mainMenuCanvas.SetActive(true);
         optionsCanvas.SetActive(false);
         creditsCanvas.SetActive(false);
     }
+
     public void ExitGame()
     {
         Application.Quit();
     }
+
     void UpdateSplash()
     {
         timer += Time.deltaTime;
