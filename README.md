@@ -26,7 +26,6 @@ Corazon: Between Day and Dusk is a 2D-platformer stealth game inspired by Philip
 
 **Bianca Natalie Labrador** | *Artist and Game Designer*
 * GitHub: [tokwanghilaw](https://github.com/tokwanghilaw)
-* Instagram: [@__biancanatalie](https://www.instagram.com/__biancanatalie)
   
 ## Acknowledgments
 
