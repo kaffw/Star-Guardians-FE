@@ -11,13 +11,9 @@ Corazon: Between Day and Dusk is a 2D-platformer stealth game inspired by Philip
 
 * Minimum requirement: Windows 10
 
-### Installing
-
-* GAME IS STILL WIP
-
-### Executing program
-
-* GAME IS STILL WIP
+### Installing and Executing program
+Star Guardians > Exec File > Corazon Between Day and Dusk.exe
+* GAME IS STILL WIP (Missing: Polish)
 
 ## Authors
 
